@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Marcelle Kaswalder: Personal Brand Website. Case study by Agostina Castello, Product Designer.">
+  <title>Marcelle Kaswalder — Agostina Castello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#0E0E0E;--white:#FFFFFF;--bg:#F7F6F3;--periwinkle:#E8E6FF;
+      --purple:#5B2FE8;--mk:#4D2D82;--mk-light:#EDE8F7;--text:#1A1A1A;--muted:#5C5978;
+      --border:#E2E0DA;--card-sage:#6BAF92;--card-peach:#E8A87C;--card-lilac:#9B8EC4;
+      --s2:.5rem;--s4:1rem;--s6:1.5rem;--s8:2rem;--s10:2.5rem;
+      --s12:3rem;--s16:4rem;--s20:5rem;
+      --font-display:'Syne',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif;
+      --dur:200ms;--radius:16px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background var(--dur),box-shadow var(--dur)}
+    .nav.scrolled{background:rgba(247,246,243,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--border)}
+    .nav__inner{max-width:1120px;margin:0 auto;padding:var(--s4) var(--s6);display:flex;align-items:center;gap:var(--s4)}
+    .nav__logo{font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--white);text-decoration:none;margin-right:auto}
+    .nav.scrolled .nav__logo{color:var(--ink)}
+    .nav__links{list-style:none;display:flex;gap:var(--s6)}
+    .nav__link{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;transition:color var(--dur)}
+    .nav.scrolled .nav__link{color:var(--muted)}
+    .nav__link--cta{background:var(--mk);color:var(--white)!important;padding:.375rem var(--s4);border-radius:100px;font-weight:600}
+    .hero{background:#1C1235;padding:140px var(--s6) var(--s16);position:relative;overflow:hidden}
+    .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(77,45,130,.35) 0%,transparent 70%);pointer-events:none}
+    .hero__inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+    .hero__back{display:inline-block;margin-bottom:var(--s8);font-size:.875rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color var(--dur)}
+    .hero__back:hover{color:rgba(255,255,255,.85)}
+    .hero__tags{display:flex;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s6)}
+    .tag{font-size:.75rem;font-weight:600;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:.25rem .75rem;border-radius:100px;letter-spacing:.03em;text-transform:uppercase}
+    .hero__title{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.18;color:var(--white);text-wrap:balance;letter-spacing:-0.01em;margin-bottom:var(--s6)}
+    .hero__title em{font-style:normal;color:#C3A6FF}
+    .hero__desc{font-size:1.25rem;color:rgba(255,255,255,.65);max-width:680px;line-height:1.6;margin-bottom:var(--s8)}
+    .hero__meta{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);padding-top:var(--s8);border-top:1px solid rgba(255,255,255,.12)}
+    .meta__label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-bottom:.25rem}
+    .meta__value{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85)}
+    .cover{background:#1C1235;display:flex;justify-content:center;padding:var(--s8) 0 0}
+    .cover img{max-width:860px;width:92%;height:auto;display:block;border-radius:12px 12px 0 0}
+    .metrics{background:var(--mk-light);padding:var(--s16) 0}
+    .metrics__grid{max-width:780px;margin:0 auto;padding:0 var(--s6);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+    .metric{background:var(--white);border-radius:20px;padding:var(--s10) var(--s8);border-top:4px solid transparent}
+    .metric--a{border-top-color:var(--mk)}
+    .metric--b{border-top-color:var(--card-sage)}
+    .metric--c{border-top-color:var(--card-peach)}
+    .metric__project{display:inline-block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:var(--s4)}
+    .metric__num{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:800;line-height:1;color:var(--ink);margin-bottom:var(--s2)}
+    .metric__num span{font-size:60%;color:var(--muted)}
+    .metric__label{font-size:.875rem;color:var(--muted);line-height:1.4}
+    .content{max-width:780px;margin:0 auto;padding:var(--s16) var(--s6) var(--s20)}
+    .section{margin-bottom:var(--s16)}
+    .section__label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mk);margin-bottom:var(--s4)}
+    .section__heading{font-family:var(--font-display);font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:700;line-height:1.15;color:var(--ink);text-wrap:balance;margin-bottom:var(--s6)}
+    .section__heading em{font-style:normal;color:var(--mk)}
+    .section__body p{color:var(--muted);font-size:1.0625rem;line-height:1.7;margin-bottom:var(--s4)}
+    .section__body p:last-child{margin-bottom:0}
+    .img-full{width:100%;border-radius:var(--radius);overflow:hidden;margin:var(--s8) 0 var(--s2);background:var(--border)}
+    .img-full img{width:100%;display:block}
+    .img-caption{font-size:.8rem;color:var(--muted);margin-bottom:var(--s8)}
+    .decisions{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin:var(--s8) 0}
+    .decision{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:var(--s6);transition:border-color var(--dur),box-shadow var(--dur)}
+    .decision:hover{border-color:var(--mk);box-shadow:0 4px 20px rgba(77,45,130,.1)}
+    .decision__num{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mk);margin-bottom:var(--s2)}
+    .decision__q{font-family:var(--font-display);font-size:.9375rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:var(--s4)}
+    .decision__a{font-size:.875rem;color:var(--muted);line-height:1.55}
+    .highlight{background:rgba(77,45,130,.07);border-left:3px solid var(--mk);border-radius:0 12px 12px 0;padding:var(--s6) var(--s8);margin:var(--s8) 0}
+    .highlight__label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mk);margin-bottom:var(--s2)}
+    .highlight__text{font-size:1.0625rem;color:var(--ink);line-height:1.6;font-weight:500}
+    .bullets{list-style:none;margin:var(--s4) 0}
+    .bullet{display:flex;gap:var(--s4);font-size:1.0625rem;color:var(--muted);line-height:1.6;padding:var(--s2) 0;border-bottom:1px solid var(--border)}
+    .bullet::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--mk);margin-top:.55em}
+    .personas{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);margin:var(--s8) 0}
+    .persona{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:var(--s6)}
+    .persona__name{font-family:var(--font-display);font-size:1.125rem;font-weight:700;color:var(--ink);margin-bottom:var(--s2)}
+    .persona__age{font-size:.8rem;color:var(--mk);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:var(--s4)}
+    .persona__desc{font-size:.9375rem;color:var(--muted);line-height:1.6;margin-bottom:var(--s4)}
+    .persona__label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:.25rem;margin-top:var(--s4)}
+    .palette{display:flex;gap:var(--s2);margin:var(--s6) 0}
+    .swatch{height:56px;border-radius:10px;flex:1;display:flex;align-items:flex-end;padding:.375rem .5rem}
+    .swatch__label{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.8)}
+    .swatch--dark .swatch__label{color:rgba(0,0,0,.5)}
+    footer{border-top:1px solid var(--border);padding:var(--s8) var(--s6)}
+    .footer__inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .footer__copy{font-size:.8rem;color:var(--muted)}
+    .footer__back{font-size:.875rem;font-weight:600;color:var(--mk);text-decoration:none}
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">AC</a>
+      <ul class="nav__links">
+        <li><a href="index.html#work" class="nav__link">Work</a></li>
+        <li><a href="index.html#about" class="nav__link">About</a></li>
+        <li><a href="index.html#contact" class="nav__link nav__link--cta">Get in touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__inner">
+      <a href="index.html" class="hero__back">← Back to portfolio</a>
+      <div class="hero__tags">
+        <span class="tag">UX / UI Design</span>
+        <span class="tag">Web Responsive</span>
+        <span class="tag">Personal Branding</span>
+        <span class="tag">Information Architecture</span>
+      </div>
+      <h1 class="hero__title">Marcelle Kaswalder: <em>Personal Brand Website</em></h1>
+      <p class="hero__desc">Designing the digital presence of a career coach, from research through a high-fidelity website using the five elements of user experience.</p>
+      <div class="hero__meta">
+        <div><p class="meta__label">Client</p><p class="meta__value">Marcelle Kaswalder</p></div>
+        <div><p class="meta__label">Type</p><p class="meta__value">Web responsive</p></div>
+        <div><p class="meta__label">Role</p><p class="meta__value">UX/UI Designer</p></div>
+        <div><p class="meta__label">Tools</p><p class="meta__value">Figma, Miro</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cover">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 540" style="max-width:860px;width:92%;display:block;border-radius:12px 12px 0 0">
+  <!-- Browser chrome -->
+  <rect width="860" height="540" rx="12" fill="#1E1E1E"/>
+  <rect y="0" width="860" height="42" rx="12" fill="#2D2D2D"/>
+  <rect y="30" width="860" height="12" fill="#2D2D2D"/>
+  <!-- Traffic lights -->
+  <circle cx="22" cy="21" r="6" fill="#FF5F57"/>
+  <circle cx="42" cy="21" r="6" fill="#FEBC2E"/>
+  <circle cx="62" cy="21" r="6" fill="#28C840"/>
+  <!-- URL bar -->
+  <rect x="100" y="11" width="500" height="20" rx="10" fill="#3D3D3D"/>
+  <text x="350" y="25" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#9CA3AF">mkaswalder.com</text>
+  <!-- Page background - abstract hero -->
+  <defs>
+    <radialGradient id="hero-grad" cx="30%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#FF6B00"/>
+      <stop offset="40%" stop-color="#7B2FBE"/>
+      <stop offset="100%" stop-color="#1A0A4C"/>
+    </radialGradient>
+    <radialGradient id="blob1" cx="70%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#3B0FBF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1A0A4C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Hero section -->
+  <rect x="0" y="42" width="860" height="240" fill="url(#hero-grad)"/>
+  <rect x="0" y="42" width="860" height="240" fill="url(#blob1)"/>
+  <!-- Abstract blob shapes -->
+  <ellipse cx="620" cy="120" rx="160" ry="90" fill="#5B21B6" opacity="0.5"/>
+  <ellipse cx="200" cy="180" rx="140" ry="80" fill="#EA580C" opacity="0.4"/>
+  <ellipse cx="450" cy="90" rx="100" ry="60" fill="#7C3AED" opacity="0.3"/>
+  <!-- Nav bar over hero -->
+  <rect x="0" y="42" width="860" height="52" fill="rgba(255,255,255,0.08)" rx="0"/>
+  <!-- Logo -->
+  <rect x="40" y="55" width="3" height="28" rx="1.5" fill="#F15C25"/>
+  <text x="50" y="63" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)" font-weight="400" letter-spacing="2">marcelle</text>
+  <text x="50" y="77" font-family="system-ui,sans-serif" font-size="14" fill="white" font-weight="800" letter-spacing="1">KASWALDER</text>
+  <!-- Nav links -->
+  <text x="700" y="72" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.85)">Sobre mí</text>
+  <text x="770" y="72" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.85)">Contacto</text>
+  <!-- Hero headline -->
+  <text x="60" y="160" font-family="system-ui,sans-serif" font-size="26" fill="white" font-weight="800">¿Es que acaso...</text>
+  <text x="60" y="192" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.75)" font-weight="400">necesitas elegir o acelerar tu carrera;</text>
+  <text x="60" y="210" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.75)">re-inventarte o emprender?</text>
+  <!-- Orange CTA area -->
+  <rect x="40" y="290" width="780" height="120" rx="14" fill="#F15C25"/>
+  <text x="68" y="328" font-family="system-ui,sans-serif" font-size="15" fill="white" font-weight="700">¿Necesitas</text>
+  <text x="68" y="348" font-family="system-ui,sans-serif" font-size="15" fill="white" font-weight="700">elegir o acelerar</text>
+  <text x="68" y="368" font-family="system-ui,sans-serif" font-size="15" fill="white" font-weight="700">tu carrera?</text>
+  <!-- Circular images placeholder -->
+  <circle cx="560" cy="350" r="46" fill="rgba(0,0,0,0.15)" stroke="white" stroke-width="2"/>
+  <text x="560" y="345" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28">🚧</text>
+  <text x="560" y="368" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="rgba(255,255,255,0.7)">ROAD CLOSED</text>
+  <circle cx="660" cy="350" r="46" fill="rgba(0,0,0,0.15)" stroke="white" stroke-width="2"/>
+  <text x="660" y="358" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32">👟</text>
+  <circle cx="760" cy="350" r="46" fill="rgba(0,0,0,0.15)" stroke="white" stroke-width="2"/>
+  <text x="760" y="358" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32">↩️</text>
+  <!-- Below fold -->
+  <rect x="0" y="420" width="860" height="120" fill="#F9F9F9"/>
+  <text x="60" y="456" font-family="system-ui,sans-serif" font-size="16" fill="#1A1A1A" font-weight="700">¿Qué te llevarías?</text>
+  <rect x="60" y="468" width="180" height="8" rx="4" fill="#E5E5E5"/>
+  <rect x="60" y="482" width="240" height="8" rx="4" fill="#E5E5E5"/>
+  <rect x="60" y="496" width="160" height="8" rx="4" fill="#E5E5E5"/>
+  <rect x="60" y="510" width="200" height="8" rx="4" fill="#E5E5E5"/>
+  <rect x="320" y="456" width="180" height="8" rx="4" fill="#E5E5E5"/>
+  <rect x="320" y="470" width="220" height="8" rx="4" fill="#E5E5E5"/>
+  <rect x="580" y="456" width="160" height="8" rx="4" fill="#F15C25" opacity="0.3"/>
+  <rect x="580" y="470" width="190" height="8" rx="4" fill="#E5E5E5"/>
+</svg>
+  </div>
+
+  <section class="metrics">
+    <div class="metrics__grid">
+      <div class="metric metric--a">
+        <span class="metric__project">Research</span>
+        <p class="metric__num">2</p>
+        <p class="metric__label">User archetypes defined from research</p>
+      </div>
+      <div class="metric metric--b">
+        <span class="metric__project">Process</span>
+        <p class="metric__num">5</p>
+        <p class="metric__label">Elements of UX (Jesse James Garrett)</p>
+      </div>
+      <div class="metric metric--c">
+        <span class="metric__project">Architecture</span>
+        <p class="metric__num">100<span>%</span></p>
+        <p class="metric__label">Of users needed a contact page</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="content">
+
+    <div class="section">
+      <p class="section__label">Context</p>
+      <h2 class="section__heading">A career coach who needed <em>a digital home</em></h2>
+      <div class="section__body">
+        <p>Marcelle Kaswalder is a career coach who helps people navigate professional transitions, identify their strengths, and build careers aligned with what they actually want. She had the expertise and the clients, but no digital presence to match.</p>
+        <p>The project brief was to design a web responsive site from scratch, applying the five elements of user experience as a structured design process: strategy, scope, structure, skeleton, and surface.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section__label">Process</p>
+      <h2 class="section__heading">Five elements, <em>one coherent product</em></h2>
+      <div class="section__body">
+        <p>Rather than jumping straight to wireframes, the project was structured around James Garrett's five-element model, ensuring decisions at each layer were grounded in the layer below.</p>
+      </div>
+      <div class="decisions">
+        <div class="decision">
+          <p class="decision__num">Strategy</p>
+          <p class="decision__q">What do we want? What do users want?</p>
+          <p class="decision__a">Research phase to understand Marcelle's goals and what her potential clients were looking for when deciding to work with a coach.</p>
+        </div>
+        <div class="decision">
+          <p class="decision__num">Scope</p>
+          <p class="decision__q">What are we building, and what are we not?</p>
+          <p class="decision__a">Defining functional and content requirements, including what to prioritise in the MVP and what to defer to a later phase.</p>
+        </div>
+        <div class="decision">
+          <p class="decision__num">Structure</p>
+          <p class="decision__q">How is information organised?</p>
+          <p class="decision__a">Designing the navigation system, user flow, and content hierarchy based on the information architecture findings.</p>
+        </div>
+        <div class="decision">
+          <p class="decision__num">Skeleton</p>
+          <p class="decision__q">Where does everything go on screen?</p>
+          <p class="decision__a">Low and mid-fidelity wireframes distributing functions and information across the layout.</p>
+        </div>
+        <div class="decision">
+          <p class="decision__num">Surface</p>
+          <p class="decision__q">What does the final experience look like?</p>
+          <p class="decision__a">Visual design layer: components, color system, typography, and final UI applied across all screens.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section__label">Research</p>
+      <h2 class="section__heading">Two archetypes, <em>one decision</em></h2>
+      <div class="section__body">
+        <p>User research revealed two distinct profiles visiting a career coach's site. Rather than designing for an abstract user, the archetypes grounded every layout and content decision.</p>
+      </div>
+      <div class="personas">
+        <div class="persona">
+          <p class="persona__name">Martina</p>
+          <p class="persona__age">17 years old</p>
+          <p class="persona__desc">A high-school student finishing her last year, energetic and practical. She wants to socialise, play hockey, and finish strong academically, but she's anxious about leaving her province to study in Buenos Aires and unsure what she wants to study.</p>
+          <p class="persona__label">Goals</p>
+          <p class="persona__desc" style="margin-bottom:0">Graduate with top marks and win the hockey tournament. Maximise her remaining time in her home province.</p>
+          <p class="persona__label">Frustrations</p>
+          <p class="persona__desc" style="margin-bottom:0">Moving to a big city next year, and feeling uncertain about what direction to take professionally.</p>
+        </div>
+        <div class="persona">
+          <p class="persona__name">Carolina</p>
+          <p class="persona__age">25 years old</p>
+          <p class="persona__desc">An organised, self-confident professional who is always upskilling. She studied law because she thought she wanted to be a lawyer, but near the end of her degree realised it wasn't her real passion.</p>
+          <p class="persona__label">Goals</p>
+          <p class="persona__desc" style="margin-bottom:0">Stay up to date and keep learning. She loves seeing how others solve similar problems, even if she ends up finding her own path.</p>
+          <p class="persona__label">Frustrations</p>
+          <p class="persona__desc" style="margin-bottom:0">Years into a career she no longer finds meaningful, and looking for guidance on how to make a change.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section__label">Information Architecture</p>
+      <h2 class="section__heading">What users <em>actually needed</em> on the site</h2>
+      <div class="section__body">
+        <p>IA research helped prioritise the site's sections. Three findings shaped the navigation and content hierarchy directly.</p>
+      </div>
+      <div class="decisions">
+        <div class="decision">
+          <p class="decision__num">100%</p>
+          <p class="decision__q">Contact page</p>
+          <p class="decision__a">Every user surveyed needed a clear way to get in touch. The contact path became the primary CTA across all pages.</p>
+        </div>
+        <div class="decision">
+          <p class="decision__num">60%</p>
+          <p class="decision__q">Work modality</p>
+          <p class="decision__a">More than half needed to understand how coaching sessions work before deciding to reach out.</p>
+        </div>
+        <div class="decision">
+          <p class="decision__num">50%</p>
+          <p class="decision__q">Online platform</p>
+          <p class="decision__a">Half of users expected remote session options, making a clear online/in-person distinction essential.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section__label">Visual Design</p>
+      <h2 class="section__heading">Color and type <em>that signal confidence</em></h2>
+      <div class="section__body">
+        <p>The color system was built around a bold violet and a warm orange, grounded in white and dark navy. The pairing positions Marcelle as modern and professional while staying approachable.</p>
+      </div>
+      <div class="palette">
+        <div class="swatch" style="background:#FFFFFF;border:1px solid #E2E0DA"><span class="swatch__label swatch--dark" style="color:rgba(0,0,0,.4)">White</span></div>
+        <div class="swatch" style="background:#F15C25"><span class="swatch__label">Naranja</span></div>
+        <div class="swatch" style="background:#4D2D82"><span class="swatch__label">Violeta</span></div>
+        <div class="swatch" style="background:#263057"><span class="swatch__label">Azul</span></div>
+      </div>
+      <div class="section__body">
+        <p>Typography was set in Roboto across all weights, using Roboto Bold at 48px for H1 display, Bold 36px for subheadings, and Regular 21px for body. The choice keeps the reading experience clean at all screen sizes.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer__inner">
+      <span>© 2026 Agostina Castello</span>
+      <a href="index.html" class="footer__back">← Back to portfolio</a>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  </script>
+</body>
+</html>
