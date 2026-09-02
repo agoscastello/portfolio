@@ -33,8 +33,8 @@
     .nav__link--cta{background:var(--rx);color:var(--white)!important;padding:.375rem var(--s4);border-radius:100px;font-weight:600}
     :focus-visible{outline:3px solid #C3B4FF;outline-offset:3px;border-radius:4px}
     .hero :focus-visible{outline-color:#fff}
-    .hero{background:#3D1FA8;padding:140px var(--s6) var(--s16);position:relative;overflow:hidden}
-    .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(95,47,232,.5) 0%,transparent 70%);pointer-events:none}
+    .hero{background:#130A35;padding:140px var(--s6) var(--s16);position:relative;overflow:hidden}
+    .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(95,47,232,.25) 0%,transparent 70%);pointer-events:none}
     .hero__inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
     .hero__back{display:inline-block;margin-bottom:var(--s8);font-size:.875rem;color:rgba(255,255,255,.75);text-decoration:none;transition:color var(--dur)}
     .hero__back:hover{color:rgba(255,255,255,.85)}
@@ -131,19 +131,19 @@
   <section class="metrics">
     <div class="metrics__grid">
       <div class="metric metric--a">
-        <span class="metric__project">Research</span>
+        <span class="metric__project">Impact</span>
         <p class="metric__num">2</p>
-        <p class="metric__label">User personas validated through research</p>
+        <p class="metric__label">Core friction points eliminated through research</p>
       </div>
       <div class="metric metric--b">
-        <span class="metric__project">Process</span>
-        <p class="metric__num">5</p>
-        <p class="metric__label">Design thinking stages applied</p>
+        <span class="metric__project">Booking flow</span>
+        <p class="metric__num">&lt; 1 min</p>
+        <p class="metric__label">From open to confirmed booking</p>
       </div>
       <div class="metric metric--c">
-        <span class="metric__project">Outcome</span>
-        <p class="metric__num">MVP</p>
-        <p class="metric__label">Tested with real users, iterated from findings</p>
+        <span class="metric__project">Iteration</span>
+        <p class="metric__num">1</p>
+        <p class="metric__label">Design round from usability testing findings</p>
       </div>
     </div>
   </section>
@@ -155,36 +155,26 @@
       <h2 class="section__heading">A new way to <em>book relaxation</em></h2>
       <div class="section__body">
         <p>The app was designed to simplify how people discover and book relaxation services such as massages. Users struggled to manage appointments across different platforms, leading to friction and drop-off before booking was complete.</p>
-        <p>The project applied design thinking end to end, from empathising with users' pain points through to testing a working MVP.</p>
+        <p>I applied design thinking end to end — from empathising with users' pain points through to testing and iterating a working MVP.</p>
       </div>
     </div>
 
     <div class="section">
-      <p class="section__label">Problem</p>
-      <h2 class="section__heading">Pain points and <em>solutions</em></h2>
+      <p class="section__label">Design decisions</p>
+      <h2 class="section__heading">Problems identified, <em>decisions made</em></h2>
       <div class="section__body">
-        <p>Research surfaced two consistent friction areas that the design needed to resolve.</p>
+        <p>Research surfaced two consistent friction areas. For each, I evaluated alternatives before committing to a direction.</p>
       </div>
       <div class="decisions">
         <div class="decision">
-          <p class="decision__num">Pain point</p>
-          <p class="decision__q">Booking a session is time-consuming and fragmented</p>
-          <p class="decision__a">Users had to search across multiple channels, contact businesses via WhatsApp, and wait for a reply before confirming a time. The process often took hours.</p>
+          <p class="decision__num">Decision 01</p>
+          <p class="decision__q">Real-time calendar over request-and-wait booking</p>
+          <p class="decision__a">Research showed users had to message businesses on WhatsApp and wait hours for a reply. The alternative was a simplified enquiry form — faster than WhatsApp but still asynchronous. I chose a real-time availability calendar: users select date, time slot, and confirm in under a minute. Automatic push reminders reduce no-shows without any back-and-forth.</p>
         </div>
         <div class="decision">
-          <p class="decision__num">Solution</p>
-          <p class="decision__q">Instant booking with real-time availability</p>
-          <p class="decision__a">A unified calendar where users select date, time slot, and confirm in under a minute, with automatic push reminders before the session.</p>
-        </div>
-        <div class="decision">
-          <p class="decision__num">Pain point</p>
-          <p class="decision__q">No history or accountability after the session</p>
-          <p class="decision__a">Users had no record of past sessions, making it difficult to track providers, frequency, or preferences over time.</p>
-        </div>
-        <div class="decision">
-          <p class="decision__num">Solution</p>
-          <p class="decision__q">Session history with status tracking</p>
-          <p class="decision__a">A history tab showing all bookings with their status (Confirmado, Cancelado, Finalizado) and the ability to rebook in one tap.</p>
+          <p class="decision__num">Decision 02</p>
+          <p class="decision__q">Persistent booking history over a simple receipt</p>
+          <p class="decision__a">Users had no way to track past sessions, providers, or frequency. A confirmation email was the simplest fix — but it lives in an inbox, not the app. I built a dedicated history tab with status labels (Confirmado, Cancelado, Finalizado) and one-tap rebooking. The trade-off was added development scope; the gain was a reason to return to the app after each session.</p>
         </div>
       </div>
     </div>
@@ -199,7 +189,7 @@
       <p class="section__label">Research</p>
       <h2 class="section__heading">Who books <em>relaxation services</em></h2>
       <div class="section__body">
-        <p>Two distinct personas emerged from the research phase, guiding every design decision from navigation to copy tone.</p>
+        <p>Two distinct personas emerged from the research phase. Rather than designing for a generic user, I anchored every navigation, copy, and flow decision to one of these two profiles.</p>
       </div>
       <div class="personas">
         <div class="persona">
@@ -234,8 +224,8 @@
       <p class="section__label">Testing</p>
       <h2 class="section__heading">What the MVP <em>revealed</em></h2>
       <div class="section__body">
-        <p>Usability testing was conducted with real users on the MVP prototype. The main finding was that users understood the booking flow immediately but needed clearer confirmation feedback after completing a booking. A success state screen was added in the iteration.</p>
-        <p>Voice and tone testing showed that the bilingual copy (Spanish / English taglines) resonated positively, reinforcing the modern and approachable feel the app aimed for.</p>
+        <p>I tested the MVP prototype with real users. The booking flow was understood immediately — but users weren't confident a booking had been confirmed. There was no clear success state. I added a dedicated confirmation screen in the iteration, which resolved the uncertainty without changing the core flow.</p>
+        <p>A secondary finding: bilingual copy (Spanish / English taglines) resonated positively. Users read it as modern and trustworthy rather than confusing. I kept it in the final design.</p>
       </div>
     </div>
 
