@@ -11,7 +11,7 @@
   <style>
     :root {
       --ink:#0E0E0E;--white:#FFFFFF;--bg:#F7F6F3;--periwinkle:#E8E6FF;
-      --purple:#5B2FE8;--me:#00A878;--text:#1A1A1A;--muted:#5C5978;
+      --purple:#5B2FE8;--me:#00A878;--text:#1A1A1A;--muted:#6B6A67;
       --border:#E2E0DA;--card-sage:#6BAF92;--card-peach:#E8A87C;--card-lilac:#9B8EC4;
       --s2:.5rem;--s4:1rem;--s6:1.5rem;--s8:2rem;--s10:2.5rem;
       --s12:3rem;--s16:4rem;--s20:5rem;
@@ -30,7 +30,7 @@
     .nav__link{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;transition:color var(--dur)}
     .nav.scrolled .nav__link{color:var(--muted)}
     .nav__link--cta{background:var(--me);color:var(--white)!important;padding:.375rem var(--s4);border-radius:100px;font-weight:600}
-    .hero{background:#061A12;padding:140px var(--s6) var(--s16);position:relative;overflow:hidden}
+    .hero{background:var(--ink);padding:140px var(--s6) var(--s16);position:relative;overflow:hidden}
     .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(0,168,120,.18) 0%,transparent 70%);pointer-events:none}
     .hero__inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
     .hero__back{display:inline-block;margin-bottom:var(--s8);font-size:.875rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color var(--dur)}
@@ -134,9 +134,9 @@
         <p class="metric__label">Distinct roles designed for accountants and their clients</p>
       </div>
       <div class="metric metric--lilac">
-        <span class="metric__project">Satisfaction</span>
-        <p class="metric__num">60<span>%</span></p>
-        <p class="metric__label">Increase in user satisfaction after redesign and iOS/Android conversion</p>
+        <span class="metric__project">Outcome</span>
+        <p class="metric__num">DS</p>
+        <p class="metric__label">Full design system delivered for consistent product evolution</p>
       </div>
     </div>
   </section>
@@ -169,11 +169,11 @@
       <h2 class="section__heading">Full-cycle design ownership, <em>from discovery to system</em></h2>
       <div class="section__body"><p>I owned this project end-to-end across research, architecture, and design:</p></div>
       <ul class="bullets">
-        <li class="bullet">Conducted user research with accountants and clients — identifying divergent mental models that drove every architectural decision</li>
-        <li class="bullet">Architected a dual-track IA: distinct navigation hierarchies for portfolio management (accountants) and task clarity (clients)</li>
-        <li class="bullet">Designed role-based dashboards optimised for portfolio scanning and status visibility respectively</li>
-        <li class="bullet">Restructured document management flows — reducing file access from multiple steps to a single surfaced action</li>
-        <li class="bullet">Delivered a full design system as the living source of truth for future development, documented alongside the redesign rather than after</li>
+        <li class="bullet">User research with both accountants and clients to understand workflow differences</li>
+        <li class="bullet">Information architecture redesign: restructuring navigation and content hierarchy for both roles</li>
+        <li class="bullet">Dashboard design optimised for portfolio scanning (accountant) and status clarity (client)</li>
+        <li class="bullet">Document management flow redesign: reducing the steps to find, upload, and share files</li>
+        <li class="bullet">Full design system delivery for consistent future development</li>
       </ul>
     </div>
 
@@ -194,17 +194,17 @@
         <div class="decision">
           <p class="decision__num">Decision 01</p>
           <p class="decision__q">Role-based dashboard views</p>
-          <p class="decision__a">The alternative was a single dashboard with filters and toggle switches to switch between views. We rejected this: a toggle asks users to manage their own context — exactly the cognitive overhead we were trying to remove. Distinct home screens mean each user arrives in their own context automatically, with no switching required.</p>
+          <p class="decision__a">Rather than a single dashboard trying to serve both users, we designed distinct home screens — the accountant view leading with portfolio status across clients, the client view leading with pending tasks and recent documents.</p>
         </div>
         <div class="decision">
           <p class="decision__num">Decision 02</p>
           <p class="decision__q">File-first navigation</p>
-          <p class="decision__a">Research showed accountants spent most of their time locating documents, not processing them. The existing IA organized content by client first, files second — forcing users to navigate two levels before reaching what they actually needed. We inverted the hierarchy: documents first, with client context as metadata. File access dropped from 4+ steps to 1. That's where the 40% time reduction came from.</p>
+          <p class="decision__a">Documents are the primary unit of work in accounting. We restructured the IA to make file access the fastest path through the product, surfacing recent, pending, and overdue documents at the top of every relevant view.</p>
         </div>
         <div class="decision">
           <p class="decision__num">Decision 03</p>
           <p class="decision__q">Design system as product foundation</p>
-          <p class="decision__a">Design systems built after a product is designed become documentation of decisions that were never made systematically. We built the system in parallel — components were extracted from real screens, tokens were derived from real constraints. The trade-off was extra design time upfront. The return: the development team had a shared language, design-development back-and-forth dropped significantly, and future features had a consistent foundation to build on rather than inherit inconsistencies from.</p>
+          <p class="decision__a">We documented a full design system alongside the redesign, not as a separate deliverable, but as the actual source of truth for the new interface, grounded in real use cases rather than abstract principles.</p>
         </div>
       </div>
     </div>
