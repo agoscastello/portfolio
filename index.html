@@ -220,7 +220,7 @@ ul { list-style: none; }
   margin-top: var(--s3); margin-bottom: var(--s6);
   animation: fade-up 0.6s var(--ease) 0.25s both;
 }
-#typewriter-text {}
+#typewriter-text { display: inline-block; }
 .back-top {
   position: fixed; bottom: var(--s8); right: var(--s8); z-index: 300;
   width: 44px; height: 44px; border-radius: 50%;
@@ -766,30 +766,23 @@ ul { list-style: none; }
   (function() {
     const roles = ['Product Designer', 'UX/UI Designer', 'Systems Designer', 'UX Strategist', 'B2B SaaS Designer'];
     const el = document.getElementById('typewriter-text');
-    let roleIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-    let paused = false;
-
-    function tick() {
-      const current = roles[roleIndex];
-      if (paused) { paused = false; setTimeout(tick, deleting ? 50 : 1800); return; }
-      if (!deleting) {
-        el.textContent = current.slice(0, ++charIndex);
-        if (charIndex === current.length) { paused = true; deleting = true; }
-        setTimeout(tick, 80);
-      } else {
-        el.textContent = current.slice(0, --charIndex);
-        if (charIndex === 0) {
-          deleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-          setTimeout(tick, 400);
-        } else {
-          setTimeout(tick, 45);
-        }
-      }
+    let i = 0;
+    el.style.clipPath = 'inset(0 0% 0 0)';
+    function next() {
+      el.style.transition = 'clip-path 0.38s cubic-bezier(0.22,0,0.1,1)';
+      el.style.clipPath = 'inset(0 100% 0 0)';
+      setTimeout(() => {
+        i = (i + 1) % roles.length;
+        el.textContent = roles[i];
+        el.style.transition = 'none';
+        el.style.clipPath = 'inset(0 100% 0 0)';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          el.style.transition = 'clip-path 0.42s cubic-bezier(0.22,0,0.1,1)';
+          el.style.clipPath = 'inset(0 0% 0 0)';
+        }));
+      }, 420);
     }
-    setTimeout(tick, 1200);
+    setInterval(next, 2800);
   })();
 
   // Scroll to top button
