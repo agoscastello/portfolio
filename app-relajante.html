@@ -21,14 +21,14 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
-    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background var(--dur),box-shadow var(--dur)}
-    .nav.scrolled{background:rgba(247,246,243,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--border)}
-    .nav__inner{max-width:1120px;margin:0 auto;padding:var(--s4) var(--s6);display:flex;align-items:center;gap:var(--s4)}
-    .nav__logo{font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--white);text-decoration:none;margin-right:auto}
-    .nav.scrolled .nav__logo{color:var(--ink)}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background 200ms ease,box-shadow 200ms ease;height:60px}
+    .nav.scrolled{background:var(--white);box-shadow:0 1px 0 rgba(12,11,29,0.06)}
+    .nav__inner{max-width:1160px;margin:0 auto;padding:0 var(--s6);height:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav__logo{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--white);letter-spacing:-.01em;text-decoration:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .nav.scrolled .nav__logo{color:var(--purple);-webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto}
     .nav__links{list-style:none;display:flex;gap:var(--s6)}
-    .nav__link{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;transition:color var(--dur)}
-    .nav.scrolled .nav__link{color:var(--muted)}
+    .nav__link{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;transition:color var(--dur)}
+    .nav.scrolled .nav__link{color:var(--stone)}
     .nav__link--cta{background:var(--rx);color:var(--white)!important;padding:.375rem var(--s4);border-radius:100px;font-weight:600}:focus-visible{outline:3px solid #C3B4FF;outline-offset:3px;border-radius:4px}.hero :focus-visible{outline-color:#fff}
     .hero{background:#3D1FA8;padding:140px var(--s6) var(--s16);position:relative;overflow:hidden}
     .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(95,47,232,.5) 0%,transparent 70%);pointer-events:none}

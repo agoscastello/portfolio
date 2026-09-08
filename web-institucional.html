@@ -63,35 +63,34 @@
     /* ── Nav ────────────────────────────────────────────────── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: transparent;
-      transition: background var(--dur), box-shadow var(--dur);
+      height: 60px; background: transparent;
+      transition: background 200ms ease, box-shadow 200ms ease;
     }
     .nav.scrolled {
-      background: rgba(247,246,243,.92);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 var(--border);
+      background: var(--white);
+      box-shadow: 0 1px 0 rgba(12,11,29,0.06);
     }
     .nav__inner {
-      max-width: 1120px; margin: 0 auto;
-      padding: var(--s4) var(--s6);
-      display: flex; align-items: center; gap: var(--s4);
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 var(--s6); height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
     }
     .nav__logo {
       font-family: var(--font-display);
-      font-weight: 700; font-size: var(--t-2);
+      font-weight: 700; font-size: 1rem; letter-spacing: -0.01em;
       color: var(--white); text-decoration: none;
-      margin-right: auto;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
-    .nav.scrolled .nav__logo { color: var(--ink); }
+    .nav.scrolled .nav__logo { color: var(--purple); -webkit-font-smoothing: auto; }
     .nav__links { list-style: none; display: flex; gap: var(--s6); }
     .nav__link {
       font-size: 0.875rem; font-weight: 500;
-      color: rgba(255,255,255,.85); text-decoration: none;
+      color: rgba(255,255,255,.8); text-decoration: none;
       transition: color var(--dur);
     }
-    .nav.scrolled .nav__link { color: var(--muted); }
-    .nav__link:hover { color: var(--white); }
-    .nav.scrolled .nav__link:hover { color: var(--text); }
+    .nav.scrolled .nav__link { color: var(--stone); }
+    .nav__link:not(.nav__link--cta):hover { color: var(--white); }
+    .nav.scrolled .nav__link:not(.nav__link--cta):hover { color: var(--ink); }
     .nav__link--cta {
       background: var(--itp); color: var(--ink) !important;
       padding: 0.375rem var(--s4); border-radius: 100px;
