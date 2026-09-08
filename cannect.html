@@ -48,8 +48,8 @@
     .nav__link{font-size:var(--t--1);font-weight:500;color:rgba(255,255,255,.75);transition:color var(--dur)}
     .nav.scrolled .nav__link{color:var(--stone)}
     .nav__link:hover{color:var(--purple)}
-    .nav__link--cta{background:var(--cannect);color:var(--ink);padding:8px 18px;border-radius:100px;transition:background var(--dur)}
-    .nav__link--cta:hover{background:#16A882;color:var(--ink)}
+    .nav__link--cta{background:var(--cannect);color:var(--white);padding:8px 18px;border-radius:100px;transition:background var(--dur)}
+    .nav__link--cta:hover{background:#16A882;color:var(--white)}
     .nav__toggle{display:none;background:none;border:none;cursor:pointer;color:var(--ink);padding:4px}
 
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s6)}
@@ -57,7 +57,7 @@
     .case-hero{background:#061A15;padding-top:calc(60px + var(--s16));padding-bottom:0;position:relative;overflow:hidden}
     .case-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(31,201,163,.2) 0%,transparent 70%);pointer-events:none}
     .case-hero .wrap{display:flex;flex-direction:column;gap:var(--s6);position:relative;z-index:1}
-    .case-hero__back{display:inline-flex;align-items:center;gap:6px;font-size:var(--t--1);font-weight:500;color:rgba(255,255,255,.5);transition:color var(--dur) var(--ease);align-self:flex-start;width:fit-content;letter-spacing:.01em}
+    .case-hero__back{display:inline-flex;align-items:center;gap:6px;font-size:var(--t--1);font-weight:500;color:rgba(255,255,255,.7);transition:color var(--dur) var(--ease);align-self:flex-start;width:fit-content;letter-spacing:.01em}
     .case-hero__back:hover{color:rgba(255,255,255,.9)}
     .case-hero__tags{display:flex;flex-wrap:wrap;gap:var(--s2)}
     .tag{font-size:.75rem;font-weight:600;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:.25rem .75rem;border-radius:100px;letter-spacing:.03em;text-transform:uppercase}
@@ -71,13 +71,13 @@
     .case-cover{background:var(--white);display:flex;justify-content:center;padding:var(--s10) 0 0;position:relative}
     .case-cover img{max-width:860px;width:92%;height:auto;display:block;border-radius:12px 12px 0 0;position:relative;z-index:1}
 
-    .case-metrics-wrap{background:var(--white);padding:var(--s12) 0}.case-metrics{max-width:780px;margin:0 auto;padding:0 var(--s6);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
-    .case-metric{background:var(--white);border-radius:20px;padding:var(--s10) var(--s8);border-top:4px solid transparent;display:flex;flex-direction:column;gap:var(--s3)}
+    .case-metrics-wrap{background:var(--white);padding:var(--s10) 0 var(--s12)}.case-metrics{max-width:860px;margin:0 auto;padding:0 var(--s6);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+    .case-metric{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:var(--s8);border-top:3px solid transparent;display:flex;flex-direction:column;gap:var(--s3)}
     .case-metric:nth-child(1){border-top-color:var(--cannect)}.case-metric:nth-child(2){border-top-color:#6BAF92}.case-metric:nth-child(3){border-top-color:#E8A87C}
-    .case-metric__num{font-family:var(--ff-display);font-size:var(--t-5);font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
+    .case-metric__num{font-family:var(--ff-display);font-size:var(--t-4);font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
     .case-metric__num em{color:var(--cannect);font-style:normal}
     .case-metric__label{font-size:var(--t--1);color:var(--stone);line-height:1.55}
-    .case-metric__tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0D9B7A;background:#E6FAF6;border-radius:100px;padding:2px 10px;width:fit-content}
+    .case-metric__tag{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
     .case-sections{max-width:780px;margin:0 auto;padding:var(--s16) var(--s6)}
     .case-section{padding:var(--s12) 0}
@@ -87,9 +87,9 @@
     .section-body{color:var(--stone);font-size:var(--t-0);line-height:1.8}
     .section-body p+p{margin-top:var(--s4)}
 
-    .callout{background:var(--periwinkle);border-radius:16px;padding:var(--s6) var(--s8);margin-top:var(--s8)}
-    .callout__label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:var(--s3)}
-    .callout__text{font-size:var(--t-0);color:var(--ink);line-height:1.7}
+    .callout{border-left:3px solid var(--cannect);padding:var(--s4) var(--s8);margin-top:var(--s8)}
+    .callout__label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cannect);margin-bottom:var(--s3)}
+    .callout__text{font-size:var(--t-1);color:var(--ink);line-height:1.7;font-style:italic}
 
     .decisions{margin-top:var(--s8);display:flex;flex-direction:column;gap:var(--s4)}
     .decision{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:var(--s6);transition:border-color var(--dur),box-shadow var(--dur)}
@@ -120,7 +120,7 @@
       .case-hero__title{font-size:var(--t-4)}
       .case-hero__meta{grid-template-columns:repeat(2,1fr)}
       .case-metrics{grid-template-columns:1fr}
-      .case-metrics{grid-template-columns:1fr;gap:var(--s4)}
+      .case-metric:nth-child(2),.case-metric:nth-child(3){padding-left:0;border-left:none}
       
     }
     @media(max-width:640px){
@@ -146,9 +146,9 @@
       image-rendering: -webkit-optimize-contrast;
     }
     
-.back-top{position:fixed;bottom:2rem;right:2rem;z-index:300;width:44px;height:44px;border-radius:50%;background:#5B2FE8;color:#fff;border:none;cursor:pointer;font-size:1.1rem;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(91,47,232,0.3);opacity:0;transform:translateY(12px) scale(0.85);transition:opacity 300ms,transform 300ms,background 150ms;pointer-events:none}
+.back-top{position:fixed;bottom:2rem;right:2rem;z-index:300;width:44px;height:44px;border-radius:50%;background:var(--cannect);color:#fff;border:none;cursor:pointer;font-size:1.1rem;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(31,201,163,0.35);opacity:0;transform:translateY(12px) scale(0.85);transition:opacity 300ms,transform 300ms,background 150ms;pointer-events:none}
 .back-top--visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
-.back-top:hover{background:#4520C4;transform:translateY(-2px) scale(1)}
+.back-top:hover{background:#16A882;transform:translateY(-2px) scale(1)}
 </style>
 </head>
 <body>
@@ -182,13 +182,13 @@
           <span class="tag">Information Architecture</span>
           <span class="tag">WCAG 2.2</span>
         </div>
-        <h1 class="case-hero__title">Cannect:<br><em>Biotech Traceability & Workflow Precision</em></h1>
-        <p class="case-hero__desc">Designing an intelligent traceability tool for a heavily regulated B2B biotechnology platform — reducing critical task completion time by 83% while eliminating compliance risk.</p>
+        <h1 class="case-hero__title">Cannect:<br><em>Simplifying Biotech Traceability</em></h1>
+        <p class="case-hero__desc">Designing an intelligent traceability tool for a compliance-driven biotechnology B2B platform, reducing critical task completion time by 83%.</p>
         <div class="case-hero__meta">
           <div><p class="meta-label">Role</p><p class="meta-value">UX/UI Lead</p></div>
           <div><p class="meta-label">Company</p><p class="meta-value">IT Patagonia</p></div>
           <div><p class="meta-label">Timeline</p><p class="meta-value">2022–2024</p></div>
-          <div><p class="meta-label">Product type</p><p class="meta-value">Enterprise B2B SaaS · Web</p></div>
+          <div><p class="meta-label">Product type</p><p class="meta-value">Enterprise B2B SaaS · Multi-platform (Web Desktop & Native Mobile App)</p></div>
         </div>
       </div>
     </section>
@@ -197,7 +197,7 @@
 
 
     <div class="case-cover">
-      <img src="cannect_1.png" alt="Cannect Lotes traceability dashboard — desktop and mobile view" loading="lazy" decoding="async">
+      <img src="cannect.png" alt="Cannect Lotes traceability dashboard — desktop and mobile view" loading="lazy" decoding="async">
     </div>
     <div class="case-metrics-wrap">
       <div class="case-metrics" role="list">
@@ -213,8 +213,8 @@
         </div>
         <div class="case-metric" role="listitem">
           <span class="case-metric__tag">Scope</span>
-          <p class="case-metric__num" style="font-size:var(--t-3)">End&#x2011;to&#x2011;end</p>
-          <p class="case-metric__label">Research, IA, wireframes, high-fidelity, hand-off</p>
+          <p class="case-metric__num" style="font-size:var(--t-3)">End to end</p>
+          <p class="case-metric__label">Research, IA, native mobile patterns, responsive web, wireframes, high fidelity, handoff, WCAG 2.2 standards</p>
         </div>
       </div>
     </div>
@@ -222,35 +222,38 @@
     <div class="case-sections">
         <section class="case-section" aria-labelledby="s-context">
           <p class="section-label">Context</p>
-          <h2 class="section-heading" id="s-context">A <em>high-stakes</em> B2B environment</h2>
+          <h2 class="section-heading" id="s-context">A platform where <em>errors are not an option</em></h2>
           <div class="section-body">
-            <p>Cannect is a core traceability platform engineered for biotechnology operations. It manages biological sample tracking, audit trails, and mandatory regulatory compliance documentation.</p>
-            <p>In this domain, <strong>precision, auditability, and clear information hierarchy are non-negotiable</strong>. Users — ranging from laboratory scientists to QA specialists and operations managers — operate under rigid compliance mandates. Interface ambiguity doesn't just cause frustration; it introduces severe regulatory risk and operational downtime.</p>
+            <p>Cannect is an intelligent traceability tool built for a biotechnology company operating in a heavily regulated B2B environment. The platform handles the tracking of biological samples, processes, and compliance documentation: the kind of domain where precision, auditability, and workflow clarity are non-negotiable.</p>
+            <p>The users are technical professionals like laboratory staff, quality assurance teams, and operations managers working under strict regulatory requirements. Every interaction with the platform carries real consequences, where an unclear interface is not just frustrating but creates direct compliance risk.</p>
           </div>
         </section>
 
         <section class="case-section" aria-labelledby="s-problem">
           <p class="section-label">Problem</p>
-          <h2 class="section-heading" id="s-problem">High data density & <em>cognitive overload</em></h2>
+          <h2 class="section-heading" id="s-problem">Too much information, <em>too little clarity</em></h2>
           <div class="section-body">
-            <p>Over time, legacy features created a fragmented user interface characterised by unstructured high density — key operational data buried under unprioritised layouts, core traceability tasks requiring ~30 seconds due to scattered inputs and unclear validation loops.</p>
-            <p>Users had to mentally cross-reference multiple data points simultaneously, increasing the likelihood of compliance errors. In a regulated environment, cognitive fatigue isn't a UX inconvenience — it's an operational and legal liability.</p>
+            <p>The existing interface had accumulated significant complexity over time. Dense information layouts, inconsistent patterns, and workflows did not match how users actually performed their tasks across different touchpoints. The most critical flows were taking users approximately 30 seconds to complete steps that should have been near instant.</p>
+            <p>In a compliance-driven environment, this was not just a UX problem. Cognitive overload increases error rates, slow task completion affects operational throughput, and unclear validation feedback makes it harder for users to trust the system.</p>
           </div>
           <div class="callout">
-            <p class="callout__label">The core design challenge</p>
-            <p class="callout__text">How do you drastically simplify a complex domain without sacrificing the granular precision, control, and audit readiness technical users rely on? The goal was clarity without oversimplification.</p>
+            <p class="callout__label">The core challenge</p>
+            <p class="callout__text">How do you simplify a genuinely complex domain without removing the precision and control that technical users depend on? The goal was clarity without oversimplification: making the interface faster across desktop and mobile devices without hiding information that matters.</p>
           </div>
         </section>
 
         <section class="case-section" aria-labelledby="s-role">
           <p class="section-label">My role</p>
-          <h2 class="section-heading" id="s-role">End-to-end design <em>ownership</em></h2>
-          <div class="section-body"><p>As UX/UI Lead, I maintained full design ownership across the entire engagement:</p></div>
+          <h2 class="section-heading" id="s-role">End to end design <em>ownership</em></h2>
+          <div class="section-body"><p>As UX/UI Lead, I owned the design process from research to final handoff across web and native mobile platforms:</p></div>
           <ul class="bullets">
-            <li><strong>UX Research & Benchmarking:</strong> Led qualitative user interviews, task-analysis sessions, and competitive benchmarking in high-compliance SaaS</li>
-            <li><strong>Information Architecture & Flow Mapping:</strong> Redefined the domain's core structural taxonomy, navigation models, and validation patterns</li>
-            <li><strong>Design System & Component Strategy:</strong> Developed scalable UI components, data visualisation patterns, and tokens optimised for technical web tools</li>
-            <li><strong>Cross-Functional Alignment:</strong> Partnered directly with engineering to align design solutions with technical constraints, edge cases, and API capabilities</li>
+            <li>Coordinating and facilitating UX research and benchmarking at multiple project stages</li>
+            <li>Defining the information architecture for the redesigned traceability flows across web and mobile viewports</li>
+            <li>Designing native mobile patterns for on the go sample tracking and responsive web layouts for desktop workstations</li>
+            <li>Designing and iterating wireframes through to high fidelity prototypes</li>
+            <li>Validating solutions with users before finalising design decisions</li>
+            <li>Aligning design decisions with technical constraints, mobile platform guidelines, and accessibility goals</li>
+            <li>Collaborating with engineering on handoff, component systems, and multi-platform implementation</li>
           </ul>
         </section>
 
@@ -258,11 +261,10 @@
           <p class="section-label">Process</p>
           <h2 class="section-heading" id="s-process">Research first, <em>then design</em></h2>
           <div class="section-body">
-            
-            <p>The work began with a preliminary design phase: mapping user flows, defining the information architecture, and stress-testing traceability requirements before any UI decisions were made. That structural groundwork combined with research sessions at mid-process and pre-launch shaped every design decision that followed.</p>
-            <p>Benchmarking informed the structural decisions: how comparable platforms in regulated industries handle dense information, how validation patterns work in technical B2B tools, and where we needed to deviate from convention.</p>
+            <p>The work began with a preliminary design phase: mapping multi-device user flows, defining information architecture, and stress-testing traceability requirements before making UI decisions. That structural groundwork, combined with research sessions at mid-process and pre-launch, shaped every design decision that followed.</p>
+            <p>Benchmarking informed structural decisions: how comparable platforms in regulated industries handle dense information, how native mobile UI patterns support complex data entry in the field, and where we needed to deviate from convention.</p>
           </div>
-          <img src="cannect_04.png" alt="Cannect project pre-phase — architecture, environment setup, team setup and project start" loading="lazy" decoding="async" style="border-radius:12px">
+          <img src="cannect_04.png" alt="Cannect project pre-phase: architecture, environment setup, team setup and project start" loading="lazy" decoding="async" style="border-radius:12px">
           <p class="img-caption">User flow mapping, traceability task analysis</p>
         </section>
 
@@ -272,53 +274,52 @@
           <div class="decisions">
             <div class="decision">
               <p class="decision__num">Decision 01</p>
-              <p class="decision__q">Progressive disclosure over unfiltered data density</p>
-              <p class="decision__a">Instead of displaying all data attributes simultaneously, we re-architected views around progressive disclosure. Primary operational states surface critical indicators first, allowing technical users to drill down into full audit logs on demand. This reduced visual noise without removing access to the data.</p>
+              <p class="decision__q">Progressive disclosure and multi-device strategy</p>
+              <p class="decision__a">The original interface displayed all available information simultaneously. We restructured around progressive disclosure, surfacing only what users needed at each step on both desktop and native mobile views. This reduced visual noise while ensuring full data access when needed.</p>
             </div>
             <div class="decision">
               <p class="decision__num">Decision 02</p>
-              <p class="decision__q">Context-aware validation & error recovery patterns</p>
-              <p class="decision__a">In compliance tools, error prevention is paramount. We replaced generic alert toasts with inline, context-aware validation states that clearly communicate <em>what</em> requires correction and <em>how</em> to resolve it immediately — turning error states into guided recovery flows.</p>
+              <p class="decision__q">Responsive web architecture and native mobile patterns</p>
+              <p class="decision__a">We established a dual interface strategy: a high density, highly scannable web platform for desktop analysis alongside a streamlined native mobile app optimized for quick scanning and sample logging on the go. Both environments adhered strictly to WCAG 2.2 accessibility standards and shared a unified visual taxonomy.</p>
             </div>
             <div class="decision">
               <p class="decision__num">Decision 03</p>
-              <p class="decision__q">Accessible design system for complex data sets</p>
-              <p class="decision__a">We established a robust component library centred on keyboard navigation, high-contrast WCAG 2.2 standards, and clear visual hierarchy for dense data tables and status monitors — ensuring the system scales without UI fragmentation.</p>
+              <p class="decision__q">Explicit, context-aware validation states</p>
+              <p class="decision__a">In a compliance environment, users need to know not just that something is wrong, but specifically what to do about it. We designed explicit, real-time validation feedback across web and mobile that guided users to resolution rather than just flagging errors.</p>
             </div>
           </div>
         </section>
 
         <section class="case-section" aria-labelledby="s-solution">
           <p class="section-label">Final solution</p>
-          <h2 class="section-heading" id="s-solution">Precision without <em>friction</em></h2>
+          <h2 class="section-heading" id="s-solution">Precision without <em>friction</em> across every touchpoint</h2>
 
           <div style="margin-top:var(--s8)">
-            <img src="cannect_3.png" alt="Cannect mobile app screens — login, lot list, search, QR scan and profile flows" loading="lazy" decoding="async" style="border-radius:12px;width:100%">
+            <img src="cannect_2.png" alt="Cannect Lotes dashboard, desktop traceability view" loading="lazy" decoding="async" style="border-radius:12px;width:100%">
           </div>
           <p class="img-caption">Final Cannect interface traceability dashboard</p>
           <div class="section-body" style="margin-top:var(--s10)">
-            <p>The redesigned Cannect interface maintains the full complexity of the domain. All the data, all the validation, all the traceability requirements while making that complexity navigable. Tasks that previously required users to hold multiple pieces of information in their heads simultaneously now follow a clear, step-by-step structure.</p>
-            <p>The design system established during this project provided a consistent foundation for future development scalable components that engineering could implement faithfully and that the design team could extend without divergence.</p>
+            <p>The redesigned Cannect platform maintains the full complexity of the domain whether accessed from a workstation or a mobile device. All data, validation loops, and traceability requirements remain intact while making that complexity navigable. Tasks that previously required users to hold multiple pieces of information in their heads simultaneously now follow a clear, step by step structure.</p>
+            <p>The design system established during this project provided a consistent foundation for future development: scalable web and mobile components that engineering could implement faithfully and that the design team could extend without divergence.</p>
           </div>
-        
+
         </section>
 
         <section class="case-section" aria-labelledby="s-outcome">
           <p class="section-label">Outcome</p>
-          <h2 class="section-heading" id="s-outcome">83% faster. <em>Same precision.</em></h2>
+          <h2 class="section-heading" id="s-outcome">83% faster <em>with maximum precision</em></h2>
           <div class="section-body">
-            <p>The primary success metric was task completion time on the critical traceability workflow. It went from approximately 30 seconds to 5 seconds an 83% reduction. This is a meaningful number in an operational context where the same action is repeated many times daily.</p>
-            <p>Beyond the quantitative result, user satisfaction increased measurably. Users reported feeling more confident in the interface not just faster, but more in control. In a compliance environment, that sense of clarity and control is a product quality in itself.</p>
+            <p>The primary success metric was task completion time on the critical traceability workflow. It went from approximately 30 seconds to 5 seconds, representing an 83% reduction. This is a meaningful improvement in an operational context where the same action is repeated many times daily across different physical work settings.</p>
+            <p>Beyond the quantitative result, user satisfaction increased measurably. Users reported feeling more confident in the interface, feeling not just faster but more in control. In a compliance environment, that sense of clarity and control is a core product quality.</p>
           </div>
-          <img src="cannect_2.png" alt="Cannect lot detail — 5-stage traceability workflow from seed to harvest" loading="lazy" decoding="async" style="margin-top:var(--s8);border-radius:12px;width:100%">
+          <img src="cannect_3.png" alt="Cannect mobile app screens: login, lot list, search, QR scan and profile flows" loading="lazy" decoding="async" style="margin-top:var(--s8);border-radius:12px;width:100%">
         </section>
 
         <section class="case-section" aria-labelledby="s-reflection">
           <p class="section-label">Reflection</p>
-          <h2 class="section-heading" id="s-reflection">What I would <em>do next</em></h2>
+          <h2 class="section-heading" id="s-reflection">What this <em>reinforced</em></h2>
           <div class="section-body">
-            <p>This project reinforced something I believe strongly: in complex, technical B2B domains, the most important design work is structural information architecture and workflow design not visual. Getting the structure right was what drove the 83% improvement. The visual layer followed from that.</p>
-            
+            <p>This project reinforced something I believe strongly: in complex, technical B2B domains, the most important design work is structural information architecture and workflow design across all user touchpoints, not visual surface. Getting the multi-platform structure right was what drove the 83% performance improvement, and the visual layer naturally followed from that.</p>
           </div>
         </section>
       </div>
