@@ -141,6 +141,23 @@ ul { list-style: none; }
 }
 .nav__link--cta:hover .cta-arrow { transform: translate(2px,-2px) scale(1.05); }
 .nav__toggle { display: none; color: var(--ink); padding: var(--s2); cursor: pointer; background: none; border: none; }
+.nav__item { position: relative; }
+.nav__item:hover .nav__dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav__dropdown {
+  position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(-4px);
+  background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(12,11,29,0.08), 0 2px 6px rgba(12,11,29,0.04);
+  padding: var(--s2); min-width: 200px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 160ms var(--ease), transform 160ms var(--ease);
+}
+.nav__dropdown-item {
+  display: block; padding: var(--s2) var(--s3); border-radius: 8px;
+  font-size: var(--t--1); font-weight: 500; color: var(--stone);
+  text-decoration: none; white-space: nowrap;
+  transition: background 120ms var(--ease), color 120ms var(--ease);
+}
+.nav__dropdown-item:hover { background: var(--periwinkle); color: var(--ink); }
 
 /* ── Keyframes ── */
 @keyframes float {
@@ -425,7 +442,7 @@ ul { list-style: none; }
 .about__em { color: var(--ink); font-weight: 600; }
 .about__note { margin-top: var(--s8); padding: var(--s4) var(--s5); background: var(--white); border-radius: 10px; border: 1px solid var(--border); font-size: var(--t--1); color: var(--stone); display: flex; align-items: center; gap: var(--s3); }
 .about__note-dot { width: 8px; height: 8px; border-radius: 50%; background: #22C55E; flex-shrink: 0; animation: pulse-dot 2s ease-in-out infinite; }
-.skills-area { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s8); padding-top: var(--s8); border-top: 1px solid var(--border); }
+.skills-area { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s8); padding-top: var(--s8); border-top: 1px solid var(--border); align-items: start; }
 .skills-group { display: flex; flex-direction: column; gap: var(--s2); }
 .skills-list { display: flex; flex-direction: column; gap: var(--s2); }
 .skill-row {
@@ -476,6 +493,7 @@ ul { list-style: none; }
   .card { grid-column: span 12; }
   .nav__links { display: none; }
   .nav__links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: var(--s6); gap: var(--s5); }
+  .nav__dropdown { position: static; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border: none; border-radius: 0; padding: var(--s2) 0 0 var(--s4); min-width: unset; display: flex; flex-direction: column; }
   .nav__toggle { display: block; }
   .footer__inner { flex-direction: column; gap: var(--s2); text-align: center; }
 }
@@ -491,7 +509,17 @@ ul { list-style: none; }
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect y="4" width="20" height="2" fill="currentColor" rx="1"/><rect y="9" width="20" height="2" fill="currentColor" rx="1"/><rect y="14" width="20" height="2" fill="currentColor" rx="1"/></svg>
     </button>
     <ul class="nav__links" id="navLinks" role="list">
-      <li><a href="#work" class="nav__link">Work</a></li>
+      <li class="nav__item">
+        <a href="#work" class="nav__link">Work</a>
+        <div class="nav__dropdown" role="menu" aria-label="Projects">
+          <a href="cannect.html" class="nav__dropdown-item" role="menuitem">Cannect</a>
+          <a href="web-institucional.html" class="nav__dropdown-item" role="menuitem">IT Patagonia</a>
+          <a href="hauston.html" class="nav__dropdown-item" role="menuitem">Hauston</a>
+          <a href="marcelle.html" class="nav__dropdown-item" role="menuitem">Marcelle Kaswalder</a>
+          <a href="app-relajante.html" class="nav__dropdown-item" role="menuitem">App Relajante</a>
+          <a href="mi-estudio.html" class="nav__dropdown-item" role="menuitem">Mi Estudio</a>
+        </div>
+      </li>
       <li><a href="#about" class="nav__link">About</a></li>
       <li><a href="#contact" class="nav__link nav__link--cta">Get in touch<span class="cta-arrow" aria-hidden="true">↗</span></a></li>
     </ul>
