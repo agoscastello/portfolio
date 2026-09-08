@@ -436,18 +436,20 @@ ul { list-style: none; }
 
 /* ── About ── */
 .about { background: var(--white); }
-.about-grid { display: grid; grid-template-columns: 1fr 340px; gap: var(--s16); align-items: start; }
-.about__body { font-size: var(--t-1); color: var(--stone); line-height: 1.8; }
+.about-grid { display: flex; flex-direction: column; gap: var(--s12); }
+.about__body { font-size: var(--t-1); color: var(--stone); line-height: 1.8; max-width: 68ch; }
 .about__body p + p { margin-top: var(--s4); }
 .about__em { color: var(--ink); font-weight: 600; }
 .about__note { margin-top: var(--s8); padding: var(--s4) var(--s5); background: var(--white); border-radius: 10px; border: 1px solid var(--border); font-size: var(--t--1); color: var(--stone); display: flex; align-items: center; gap: var(--s3); }
 .about__note-dot { width: 8px; height: 8px; border-radius: 50%; background: #22C55E; flex-shrink: 0; animation: pulse-dot 2s ease-in-out infinite; }
-.skills-list { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.skills-area { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s8); padding-top: var(--s8); border-top: 1px solid var(--border); }
+.skills-group { display: flex; flex-direction: column; gap: var(--s2); }
+.skills-list { display: flex; flex-direction: column; gap: var(--s2); }
 .skill-row {
   background: var(--white); border-radius: 100px;
   padding: var(--s2) var(--s4); font-size: var(--t--1); font-weight: 500;
   color: var(--stone); display: inline-flex; align-items: center; gap: var(--s2);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border); align-self: flex-start;
   transition: border-color 200ms cubic-bezier(0.22,0,0.1,1), color 200ms cubic-bezier(0.22,0,0.1,1);
 }
 .skill-row:hover { border-color: var(--purple); color: var(--ink); }
@@ -471,7 +473,7 @@ ul { list-style: none; }
 @media (max-width: 960px) {
   .card--featured { grid-column: span 6; }
   .card { grid-column: span 6; }
-  .about-grid { grid-template-columns: 1fr; gap: var(--s10); }
+  .skills-area { grid-template-columns: 1fr; gap: var(--s6); }
   .contact__inner { flex-direction: column; align-items: flex-start; gap: var(--s8); }
   .contact__right { align-items: flex-start; }
   .metrics__grid { grid-template-columns: 1fr; }
@@ -551,31 +553,39 @@ ul { list-style: none; }
       <h2 class="section-label" id="about-heading">About</h2>
     </div>
     <div class="about-grid">
-      <div>
-        <div class="about__body">
-          <p>I'm a <span class="about__em">Product Designer with 6+ years</span> designing enterprise and B2B SaaS products across web and native mobile. My work lives at the intersection of complex systems, real user needs, and technical constraints.</p>
-          <p>I specialise in <span class="about__em">enterprise UX and design system governance</span>: the kind of work where consistency, accessibility, and scalability matter as much as visual quality. I've owned design system architecture across multiple platforms.</p>
-          <p>I work closely with product managers and engineering teams to translate complex processes into clear, measurable experiences. I care about the <span class="about__em">why</span> behind every decision, not just the output.</p>
-        </div>
+      <div class="about__body">
+        <p>I'm a <span class="about__em">Product Designer with 6+ years</span> designing enterprise and B2B SaaS products across web and native mobile. My work lives at the intersection of complex systems, real user needs, and technical constraints.</p>
+        <p>I specialise in <span class="about__em">enterprise UX and design system governance</span>: the kind of work where consistency, accessibility, and scalability matter as much as visual quality. I've owned design system architecture across multiple platforms.</p>
+        <p>I work closely with product managers and engineering teams to translate complex processes into clear, measurable experiences. I care about the <span class="about__em">why</span> behind every decision, not just the output.</p>
       </div>
-      <div>
-        <ul class="skills-list" aria-label="Core expertise">
-          <li class="skill-block__label">Core Expertise</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Enterprise B2B Systems</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Information Architecture</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Onboarding &amp; KYC Workflows</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>WCAG 2.2 Accessibility</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Interaction Design</li>
-          <li class="skill-block__label">Design Systems &amp; Tooling</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Figma · Variables · Auto Layout · Tokens</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Shadcn UI · Design Tokens</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Component Architecture</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Responsive Web &amp; Mobile</li>
-          <li class="skill-block__label">Methods &amp; AI</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Usability Testing &amp; UX Research</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Developer Hand-off</li>
-          <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>AI-Powered Prototyping &amp; Workflow Optimisation</li>
-        </ul>
+      <div class="skills-area" aria-label="Core expertise">
+        <div class="skills-group">
+          <span class="skill-block__label">Core Expertise</span>
+          <ul class="skills-list">
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Enterprise B2B Systems</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Information Architecture</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Onboarding &amp; KYC Workflows</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>WCAG 2.2 Accessibility</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Interaction Design</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <span class="skill-block__label">Design Systems &amp; Tooling</span>
+          <ul class="skills-list">
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Figma · Variables · Auto Layout · Tokens</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Shadcn UI · Design Tokens</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Component Architecture</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Responsive Web &amp; Mobile</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <span class="skill-block__label">Methods &amp; AI</span>
+          <ul class="skills-list">
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Usability Testing &amp; UX Research</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>Developer Hand-off</li>
+            <li class="skill-row"><span class="skill-row__icon" aria-hidden="true">◆</span>AI-Powered Prototyping &amp; Workflow Optimisation</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
