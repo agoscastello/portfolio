@@ -138,6 +138,12 @@ ul { list-style: none; }
   width: 8px; height: 8px; border-radius: 50%; background: var(--coral);
   animation: pulse-dot 2s ease-in-out infinite;
 }
+.typewriter-cursor {
+  display: inline-block; width: 2px; height: 0.85em;
+  background: var(--purple); margin-left: 1px; vertical-align: middle;
+  animation: blink-cursor 0.75s step-end infinite;
+}
+@keyframes blink-cursor { 0%,100%{opacity:1} 50%{opacity:0} }
 .hero__name {
   font-family: var(--ff-display); font-size: var(--t-6); font-weight: 700;
   line-height: 0.92; letter-spacing: -0.04em; color: var(--ink); text-wrap: balance;
@@ -351,7 +357,7 @@ ul { list-style: none; }
       <div class="hero__text">
         <div class="hero__badge" role="status">
           <span class="hero__badge-dot" aria-hidden="true"></span>
-          Product Designer
+          <span id="typewriter-text">Product Designer</span><span class="typewriter-cursor" aria-hidden="true"></span>
         </div>
         <h1 class="hero__name" id="hero-name">
           Agostina<br><span class="hero__name-accent">Castello</span>
@@ -626,4 +632,32 @@ ul { list-style: none; }
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
   }));
+
+  // typewriter
+  (function() {
+    const roles = ['Product Designer', 'UX/UI Designer', 'Design Systems Lead', 'Enterprise UX Designer', 'B2B SaaS Designer'];
+    const el = document.getElementById('typewriter-text');
+    let roleIdx = 0, charIdx = roles[0].length, deleting = false;
+    const TYPE_SPEED = 80, DELETE_SPEED = 45, PAUSE = 1800;
+    function tick() {
+      const current = roles[roleIdx];
+      if (!deleting) {
+        el.textContent = current.slice(0, charIdx);
+        if (charIdx === current.length) { deleting = true; setTimeout(tick, PAUSE); return; }
+        charIdx++;
+        setTimeout(tick, TYPE_SPEED);
+      } else {
+        el.textContent = current.slice(0, charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+          setTimeout(tick, 300);
+          return;
+        }
+        charIdx--;
+        setTimeout(tick, DELETE_SPEED);
+      }
+    }
+    setTimeout(tick, PAUSE);
+  })();
 </script>
