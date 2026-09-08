@@ -54,7 +54,7 @@
 
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s6)}
 
-    .case-hero{background:#061A15;padding-top:calc(60px + var(--s16));padding-bottom:var(--s16);position:relative;overflow:hidden}
+    .case-hero{background:#061A15;padding-top:calc(60px + var(--s16));padding-bottom:var(--s6);position:relative;overflow:hidden}
     .case-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(31,201,163,.2) 0%,transparent 70%);pointer-events:none}
     .case-hero .wrap{display:flex;flex-direction:column;gap:var(--s6);position:relative;z-index:1}
     .case-hero__back{display:inline-flex;align-items:center;gap:6px;font-size:var(--t--1);font-weight:500;color:rgba(255,255,255,.5);transition:color var(--dur) var(--ease);align-self:flex-start;width:fit-content;letter-spacing:.01em}
@@ -68,10 +68,10 @@
     .meta-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:var(--s2)}
     .meta-value{font-size:var(--t-0);font-weight:500;color:var(--white);line-height:1.4}
 
-    .case-cover{background:linear-gradient(to bottom,#061A15 0%,#061A15 60%,var(--cannect-light) 100%);display:flex;justify-content:center;padding:var(--s8) 0 0;position:relative}
+    .case-cover{background:linear-gradient(to bottom,#061A15 0%,var(--white) 100%);display:flex;justify-content:center;padding:0;position:relative;margin-top:-2px}
     .case-cover img{max-width:860px;width:92%;height:auto;display:block;border-radius:12px 12px 0 0;position:relative;z-index:1}
 
-    .case-metrics-wrap{background:var(--cannect-light);padding:var(--s12) 0}.case-metrics{max-width:780px;margin:0 auto;padding:0 var(--s6);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+    .case-metrics-wrap{background:var(--white);padding:var(--s12) 0}.case-metrics{max-width:780px;margin:0 auto;padding:0 var(--s6);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
     .case-metric{background:var(--white);border-radius:20px;padding:var(--s10) var(--s8);border-top:4px solid transparent;display:flex;flex-direction:column;gap:var(--s3)}
     .case-metric:nth-child(1){border-top-color:var(--cannect)}.case-metric:nth-child(2){border-top-color:#6BAF92}.case-metric:nth-child(3){border-top-color:#E8A87C}
     .case-metric__num{font-family:var(--ff-display);font-size:var(--t-5);font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
