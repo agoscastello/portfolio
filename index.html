@@ -722,6 +722,8 @@ ul { list-style: none; }
   </div>
 </footer>
 
+<button id="back-top" aria-label="Scroll to top" class="back-top">↑</button>
+
 <script>
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
@@ -780,5 +782,3 @@ ul { list-style: none; }
   document.addEventListener('scroll', checkScroll, { passive: true });
   backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
-
-<button id="back-top" aria-label="Scroll to top" class="back-top">↑</button>
