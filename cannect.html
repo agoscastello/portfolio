@@ -68,8 +68,8 @@
     .meta-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:var(--s2)}
     .meta-value{font-size:var(--t-0);font-weight:500;color:var(--white);line-height:1.4}
 
-    .case-cover{background:#061A15;display:flex;justify-content:center;padding:var(--s8) 0 0}
-    .case-cover img{max-width:860px;width:92%;height:auto;display:block;border-radius:12px 12px 0 0}
+    .case-cover{background:linear-gradient(to bottom,#061A15 0%,#061A15 60%,var(--cannect-light) 100%);display:flex;justify-content:center;padding:var(--s8) 0 0;position:relative}
+    .case-cover img{max-width:860px;width:92%;height:auto;display:block;border-radius:12px 12px 0 0;position:relative;z-index:1}
 
     .case-metrics-wrap{background:var(--cannect-light);padding:var(--s12) 0}.case-metrics{max-width:780px;margin:0 auto;padding:0 var(--s6);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
     .case-metric{background:var(--white);border-radius:20px;padding:var(--s10) var(--s8);border-top:4px solid transparent;display:flex;flex-direction:column;gap:var(--s3)}
@@ -179,12 +179,12 @@
         <div class="case-hero__tags">
           <span class="tag">B2B SaaS</span>
           <span class="tag">Enterprise</span>
-          <span class="tag">Compliance-driven</span>
-          <span class="tag">UX Research</span>
+          <span class="tag">Compliance-Driven</span>
           <span class="tag">Information Architecture</span>
+          <span class="tag">WCAG 2.2</span>
         </div>
-        <h1 class="case-hero__title">Cannect:<br><em>Simplifying Biotech Traceability</em></h1>
-        <p class="case-hero__desc">Designing an intelligent traceability tool for a compliance-driven biotechnology B2B platform, reducing critical task completion time by 83%.</p>
+        <h1 class="case-hero__title">Cannect:<br><em>Biotech Traceability & Workflow Precision</em></h1>
+        <p class="case-hero__desc">Designing an intelligent traceability tool for a heavily regulated B2B biotechnology platform — reducing critical task completion time by 83% while eliminating compliance risk.</p>
         <div class="case-hero__meta">
           <div><p class="meta-label">Role</p><p class="meta-value">UX/UI Lead</p></div>
           <div><p class="meta-label">Company</p><p class="meta-value">IT Patagonia</p></div>
@@ -223,37 +223,35 @@
     <div class="case-sections">
         <section class="case-section" aria-labelledby="s-context">
           <p class="section-label">Context</p>
-          <h2 class="section-heading" id="s-context">A platform where errors aren't <em>an option</em></h2>
+          <h2 class="section-heading" id="s-context">A <em>high-stakes</em> B2B environment</h2>
           <div class="section-body">
-            <p>Cannect is an intelligent traceability tool built for a biotechnology company operating in a heavily regulated B2B environment. The platform handles the tracking of biological samples, processes, and compliance documentation the kind of domain where precision, auditability, and workflow clarity are non-negotiable.</p>
-            <p>The users are technical professionals: laboratory staff, quality assurance teams, and operations managers working under strict regulatory requirements. Every interaction with the platform carries real consequences: an unclear interface isn't just frustrating, it creates compliance risk.</p>
+            <p>Cannect is a core traceability platform engineered for biotechnology operations. It manages biological sample tracking, audit trails, and mandatory regulatory compliance documentation.</p>
+            <p>In this domain, <strong>precision, auditability, and clear information hierarchy are non-negotiable</strong>. Users — ranging from laboratory scientists to QA specialists and operations managers — operate under rigid compliance mandates. Interface ambiguity doesn't just cause frustration; it introduces severe regulatory risk and operational downtime.</p>
           </div>
         </section>
 
         <section class="case-section" aria-labelledby="s-problem">
           <p class="section-label">Problem</p>
-          <h2 class="section-heading" id="s-problem">Too much information, <em>too little clarity</em></h2>
+          <h2 class="section-heading" id="s-problem">High data density & <em>cognitive overload</em></h2>
           <div class="section-body">
-            <p>The existing interface had accumulated significant complexity over time. Dense information layouts, inconsistent patterns, and workflows that didn't match how users actually performed their tasks. The most critical flows were taking users approximately 30 seconds to complete steps that should have been near-instant.</p>
-            <p>In a compliance-driven environment, this wasn't just a UX problem. Cognitive overload increases error rates. Slow task completion affects operational throughput. And unclear validation feedback makes it harder for users to trust the system.</p>
+            <p>Over time, legacy features created a fragmented user interface characterised by unstructured high density — key operational data buried under unprioritised layouts, core traceability tasks requiring ~30 seconds due to scattered inputs and unclear validation loops.</p>
+            <p>Users had to mentally cross-reference multiple data points simultaneously, increasing the likelihood of compliance errors. In a regulated environment, cognitive fatigue isn't a UX inconvenience — it's an operational and legal liability.</p>
           </div>
           <div class="callout">
-            <p class="callout__label">The core challenge</p>
-            <p class="callout__text">How do you simplify a genuinely complex domain without removing the precision and control that technical users depend on? The goal was clarity without oversimplification: making the interface faster without hiding information that matters.</p>
+            <p class="callout__label">The core design challenge</p>
+            <p class="callout__text">How do you drastically simplify a complex domain without sacrificing the granular precision, control, and audit readiness technical users rely on? The goal was clarity without oversimplification.</p>
           </div>
         </section>
 
         <section class="case-section" aria-labelledby="s-role">
           <p class="section-label">My role</p>
           <h2 class="section-heading" id="s-role">End-to-end design <em>ownership</em></h2>
-          <div class="section-body"><p>As UX/UI Lead, I owned the design process from research to final hand-off:</p></div>
+          <div class="section-body"><p>As UX/UI Lead, I maintained full design ownership across the entire engagement:</p></div>
           <ul class="bullets">
-            <li>Coordinating and facilitating UX research and benchmarking at multiple project stages</li>
-            <li>Defining the information architecture for the redesigned traceability flows</li>
-            <li>Designing and iterating wireframes through to high-fidelity prototypes</li>
-            <li>Validating solutions with users before finalising design decisions</li>
-            <li>Aligning design decisions with the platform's technical constraints</li>
-            <li>Collaborating with engineering on hand-off and implementation</li>
+            <li><strong>UX Research & Benchmarking:</strong> Led qualitative user interviews, task-analysis sessions, and competitive benchmarking in high-compliance SaaS</li>
+            <li><strong>Information Architecture & Flow Mapping:</strong> Redefined the domain's core structural taxonomy, navigation models, and validation patterns</li>
+            <li><strong>Design System & Component Strategy:</strong> Developed scalable UI components, data visualisation patterns, and tokens optimised for technical web tools</li>
+            <li><strong>Cross-Functional Alignment:</strong> Partnered directly with engineering to align design solutions with technical constraints, edge cases, and API capabilities</li>
           </ul>
         </section>
 
@@ -275,14 +273,18 @@
           <div class="decisions">
             <div class="decision">
               <p class="decision__num">Decision 01</p>
-              <p class="decision__q">Progressive disclosure over full density</p>
-              <p class="decision__a">The original interface displayed all available information simultaneously. We restructured around progressive disclosure surfacing only what users needed at each step, with detail available on demand. This reduced visual noise without removing access to the data.</p>
+              <p class="decision__q">Progressive disclosure over unfiltered data density</p>
+              <p class="decision__a">Instead of displaying all data attributes simultaneously, we re-architected views around progressive disclosure. Primary operational states surface critical indicators first, allowing technical users to drill down into full audit logs on demand. This reduced visual noise without removing access to the data.</p>
             </div>
-
+            <div class="decision">
+              <p class="decision__num">Decision 02</p>
+              <p class="decision__q">Context-aware validation & error recovery patterns</p>
+              <p class="decision__a">In compliance tools, error prevention is paramount. We replaced generic alert toasts with inline, context-aware validation states that clearly communicate <em>what</em> requires correction and <em>how</em> to resolve it immediately — turning error states into guided recovery flows.</p>
+            </div>
             <div class="decision">
               <p class="decision__num">Decision 03</p>
-              <p class="decision__q">Explicit, context-aware validation states</p>
-              <p class="decision__a">In a compliance environment, users need to know not just that something is wrong, but specifically what to do about it. We designed explicit validation feedback that guided users to resolution rather than just flagging errors.</p>
+              <p class="decision__q">Accessible design system for complex data sets</p>
+              <p class="decision__a">We established a robust component library centred on keyboard navigation, high-contrast WCAG 2.2 standards, and clear visual hierarchy for dense data tables and status monitors — ensuring the system scales without UI fragmentation.</p>
             </div>
           </div>
         </section>
