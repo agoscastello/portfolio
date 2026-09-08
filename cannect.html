@@ -57,8 +57,8 @@
     .case-hero{background:#061A15;padding-top:calc(60px + var(--s16));padding-bottom:var(--s16);position:relative;overflow:hidden}
     .case-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(31,201,163,.2) 0%,transparent 70%);pointer-events:none}
     .case-hero .wrap{display:flex;flex-direction:column;gap:var(--s6);position:relative;z-index:1}
-    .case-hero__back{display:inline-flex;align-items:center;gap:var(--s2);font-size:var(--t--1);font-weight:500;color:var(--muted);transition:color var(--dur)}
-    .case-hero__back:hover{color:var(--white)}
+    .case-hero__back{display:inline-flex;align-items:center;gap:var(--s2);font-size:var(--t--1);font-weight:600;color:rgba(255,255,255,.85);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:100px;transition:background var(--dur) var(--ease),color var(--dur) var(--ease),border-color var(--dur) var(--ease);letter-spacing:.01em;align-self:flex-start;width:fit-content}
+    .case-hero__back:hover{background:rgba(255,255,255,.15);color:var(--white);border-color:rgba(255,255,255,.3)}
     .case-hero__tags{display:flex;flex-wrap:wrap;gap:var(--s2)}
     .tag{font-size:.75rem;font-weight:600;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:.25rem .75rem;border-radius:100px;letter-spacing:.03em;text-transform:uppercase}
     .case-hero__title{font-family:var(--ff-display);font-size:var(--t-5);font-weight:700;line-height:1.18;letter-spacing:-.015em;color:var(--white);text-wrap:balance}
