@@ -174,7 +174,7 @@ ul { list-style: none; }
 }
 .hero__connect-label {
   font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(255,255,255,0.35); margin-top: var(--s10); margin-bottom: var(--s4);
+  color: rgba(255,255,255,0.65); margin-top: var(--s10); margin-bottom: var(--s4);
   animation: fade-up 0.7s var(--ease) 0.3s both;
 }
 .hero__links {
@@ -282,7 +282,7 @@ ul { list-style: none; }
 .work { background: var(--white); border-bottom: 1px solid var(--border); }
 .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--s4); }
 .card { grid-column: span 4; }
-.card--featured { grid-column: span 4; }
+.card--featured { grid-column: span 8; }
 
 .card__inner {
   border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
@@ -293,11 +293,37 @@ ul { list-style: none; }
 .card__inner:hover { border-color: var(--purple); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(167,139,250,0.1); }
 .card__link { position: absolute; inset: 0; z-index: 1; border-radius: 14px; }
 .card__link:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
-.card__thumb { overflow: hidden; }
-.card--featured .card__thumb { aspect-ratio: 4/3; }
+.card__thumb { overflow: hidden; position: relative; }
+.card__thumb::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,6,24,0.4) 0%, transparent 55%);
+  pointer-events: none; z-index: 1;
+}
+.card--featured .card__thumb { aspect-ratio: 16/9; }
 .card .card__thumb { aspect-ratio: 4/3; }
 .card__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 360ms var(--ease); }
 .card__inner:hover .card__thumb img { transform: scale(1.03); }
+
+/* ── Featured card: full-bleed editorial overlay ── */
+.card--featured { min-height: 420px; }
+.card--featured .card__thumb {
+  position: absolute; inset: 0; aspect-ratio: unset;
+}
+.card--featured .card__thumb::after {
+  background: linear-gradient(to top, rgba(8,6,24,0.98) 0%, rgba(8,6,24,0.65) 48%, rgba(8,6,24,0.08) 100%);
+}
+.card--featured .card__body {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  background: transparent; padding: var(--s8) var(--s8);
+}
+.card--featured .card__foot { border-top-color: rgba(255,255,255,0.1); }
+
+/* per-card image tints */
+.work-grid .card:nth-child(2) .card__thumb::after { background: linear-gradient(to top, rgba(8,6,24,0.5) 0%, rgba(14,22,80,0.18) 45%, transparent 75%); }
+.work-grid .card:nth-child(3) .card__thumb::after { background: linear-gradient(to top, rgba(8,6,24,0.5) 0%, rgba(76,29,149,0.18) 45%, transparent 75%); }
+.work-grid .card:nth-child(4) .card__thumb::after { background: linear-gradient(to top, rgba(8,6,24,0.5) 0%, rgba(131,24,67,0.18) 45%, transparent 75%); }
+.work-grid .card:nth-child(5) .card__thumb::after { background: linear-gradient(to top, rgba(8,6,24,0.5) 0%, rgba(14,80,92,0.18) 45%, transparent 75%); }
+.work-grid .card:nth-child(6) .card__thumb::after { background: linear-gradient(to top, rgba(8,6,24,0.5) 0%, rgba(92,53,14,0.18) 45%, transparent 75%); }
 
 .card__body { padding: var(--s5) var(--s6) var(--s6); flex: 1; display: flex; flex-direction: column; gap: var(--s3); }
 .card__tags { display: flex; flex-wrap: wrap; gap: var(--s2); }
@@ -306,7 +332,7 @@ ul { list-style: none; }
 .tag--coral  { background: var(--coral-light);  color: #FCA5A5; }
 .tag--muted  { background: var(--periwinkle);    color: var(--stone); }
 .card__title { font-family: var(--ff-display); font-size: var(--t-2); font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; }
-.card--featured .card__title { font-size: var(--t-2); }
+.card--featured .card__title { font-size: var(--t-3); }
 .card__desc { font-size: var(--t--1); color: var(--stone); line-height: 1.65; flex: 1; }
 .card__foot { display: flex; align-items: center; justify-content: space-between; padding-top: var(--s4); border-top: 1px solid var(--border); margin-top: auto; }
 .card__co { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
@@ -316,14 +342,14 @@ ul { list-style: none; }
 /* ── About ── */
 .about { background: var(--periwinkle); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .about-grid { display: grid; grid-template-columns: 1fr 340px; gap: var(--s16); align-items: start; }
-.about__body { font-size: var(--t-1); color: var(--stone); line-height: 1.8; }
+.about__body { font-size: var(--t-1); color: var(--ink); line-height: 1.8; }
 .about__body p + p { margin-top: var(--s4); }
-.about__em { color: var(--ink); font-weight: 600; }
-.about__note { margin-top: var(--s8); padding: var(--s4) var(--s5); background: var(--white); border-radius: 10px; border: 1px solid var(--border); font-size: var(--t--1); color: var(--stone); display: flex; align-items: center; gap: var(--s3); }
-.about__note-dot { width: 8px; height: 8px; border-radius: 50%; background: #22C55E; flex-shrink: 0; animation: pulse-dot 2s ease-in-out infinite; }
-.skills-list { display: flex; flex-direction: column; gap: 4px; }
-.skill-row { background: var(--white); border-radius: 8px; padding: var(--s3) var(--s4); font-size: var(--t--1); color: var(--stone); display: flex; align-items: center; gap: var(--s3); border: 1px solid var(--border); }
-.skill-row__icon { color: var(--purple); font-size: 14px; flex-shrink: 0; }
+.about__em { color: var(--purple); font-weight: 600; }
+.about__note { margin-top: var(--s8); font-size: var(--t--1); color: var(--stone); display: flex; align-items: center; gap: var(--s3); }
+.about__note-dot { width: 7px; height: 7px; border-radius: 50%; background: #22C55E; flex-shrink: 0; animation: pulse-dot 2s ease-in-out infinite; }
+.skills-list { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.skill-row { display: inline-flex; align-items: center; gap: 6px; background: var(--periwinkle-mid); border-radius: 100px; padding: 6px 14px; font-size: var(--t--1); color: var(--ink); border: 1px solid var(--border); line-height: 1; white-space: nowrap; }
+.skill-row__icon { color: var(--purple); font-size: 10px; flex-shrink: 0; opacity: 0.7; }
 
 /* ── Contact ── */
 .contact { background: var(--white); border-top: 1px solid var(--border); }
@@ -339,9 +365,24 @@ ul { list-style: none; }
 .footer { background: var(--periwinkle); border-top: 1px solid var(--border); padding: var(--s5) 0; }
 .footer__inner { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--muted); }
 
+/* ── Scroll-to-top ── */
+.back-top {
+  position: fixed; bottom: 28px; right: 28px; z-index: 300;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--coral); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(251,113,133,0.4);
+  opacity: 0; pointer-events: none;
+  transform: translateY(12px) scale(0.85);
+  transition: opacity 280ms var(--ease), transform 280ms var(--ease), background 160ms var(--ease), box-shadow 160ms var(--ease);
+}
+.back-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+.back-top:hover { background: #f43f5e; box-shadow: 0 6px 28px rgba(251,113,133,0.55); }
+.back-top svg { display: block; }
+
 /* ── Responsive ── */
 @media (max-width: 960px) {
-  .card--featured { grid-column: span 6; }
+  .card--featured { grid-column: span 12; }
   .card { grid-column: span 6; }
   .about-grid { grid-template-columns: 1fr; gap: var(--s10); }
   .contact__inner { flex-direction: column; align-items: flex-start; gap: var(--s8); }
@@ -638,9 +679,20 @@ ul { list-style: none; }
   </div>
 </footer>
 
+<button class="back-top" id="backTop" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 15V5M10 5L5 10M10 5L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
 <script>
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   const toggle = document.getElementById('navToggle');
   const links  = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
