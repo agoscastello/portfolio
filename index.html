@@ -197,9 +197,8 @@ ul { list-style: none; }
   margin-top: var(--s3); margin-bottom: var(--s6);
   animation: fade-up 0.6s var(--ease) 0.25s both;
 }
-.typewriter-cursor {
-  color: var(--purple); font-weight: 800;
-  animation: blink-cursor 0.75s step-end infinite;
+#typewriter-text {
+  transition: opacity 0.4s cubic-bezier(0.22, 0, 0.1, 1);
 }
 .back-top {
   position: fixed; bottom: var(--s8); right: var(--s8); z-index: 300;
@@ -477,7 +476,7 @@ ul { list-style: none; }
       <div class="hero__text">
         <p style="font-size:var(--t-1);font-weight:500;color:var(--stone);margin-bottom:var(--s1)">Hi 👋! I'm</p>
         <p class="hero__name-line">Agostina Castello</p>
-        <h1 class="hero__role-big" id="hero-name" role="status"><span id="typewriter-text">Product Designer</span><span class="typewriter-cursor">|</span></h1>
+        <h1 class="hero__role-big" id="hero-name" role="status"><span id="typewriter-text">Product Designer</span></h1>
         <p class="hero__subtitle">UX Enterprise &amp; Accessibility Specialist</p>
         <p class="hero__desc">I design enterprise digital products that reduce complexity without losing precision. B2B&nbsp;SaaS consoles, compliance-driven workflows, and the design systems that make teams move faster.</p>
         <div class="hero__stats" aria-hidden="true">
@@ -741,36 +740,20 @@ ul { list-style: none; }
     toggle.setAttribute('aria-label', 'Open menu');
   }));
 
-  // Typewriter
+  // Word fade rotation
   (function() {
     const roles = ['Product Designer', 'UX/UI Designer', 'Systems Designer', 'UX Strategist', 'B2B SaaS Designer'];
     const el = document.getElementById('typewriter-text');
-    let roleIndex = 0, charIndex = 0, deleting = false;
-    const SPEED_TYPE = 70, SPEED_DEL = 40, PAUSE_END = 1800, PAUSE_START = 400;
-    function tick() {
-      const current = roles[roleIndex];
-      if (!deleting) {
-        el.textContent = current.slice(0, charIndex + 1);
-        charIndex++;
-        if (charIndex === current.length) {
-          deleting = true;
-          setTimeout(tick, PAUSE_END);
-          return;
-        }
-        setTimeout(tick, SPEED_TYPE);
-      } else {
-        el.textContent = current.slice(0, charIndex - 1);
-        charIndex--;
-        if (charIndex === 0) {
-          deleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-          setTimeout(tick, PAUSE_START);
-          return;
-        }
-        setTimeout(tick, SPEED_DEL);
-      }
+    let i = 0;
+    function next() {
+      el.style.opacity = '0';
+      setTimeout(() => {
+        i = (i + 1) % roles.length;
+        el.textContent = roles[i];
+        el.style.opacity = '1';
+      }, 400);
     }
-    setTimeout(tick, 1200);
+    setInterval(next, 2800);
   })();
 
   // Scroll to top button
