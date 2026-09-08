@@ -105,7 +105,7 @@ ul { list-style: none; }
 .nav__logo:hover { opacity: 0.7; }
 .nav__links { display: flex; align-items: center; gap: var(--s8); }
 .nav__link { font-size: var(--t--1); font-weight: 500; color: var(--stone); transition: color var(--dur) var(--ease); }
-.nav__link:hover { color: var(--ink); }
+.nav__link:not(.nav__link--cta):hover { color: var(--ink); }
 .nav__link--cta {
   background: var(--purple); color: var(--white);
   padding: 8px 8px 8px 18px; border-radius: 100px;
