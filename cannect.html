@@ -49,6 +49,8 @@
     .nav.scrolled .nav__link{color:var(--stone)}
     .nav__link:not(.nav__link--cta):hover{color:var(--white)}
     .nav.scrolled .nav__link:not(.nav__link--cta):hover{color:var(--ink)}
+    .nav.scrolled .nav__link--cta{color:var(--white)}
+    .nav.scrolled .nav__link--cta:hover{color:var(--white)}
     .nav__link--cta{background:var(--cannect);color:var(--white);padding:8px 8px 8px 18px;border-radius:100px;font-size:var(--t--1);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:background 350ms cubic-bezier(.32,.72,0,1),transform 120ms cubic-bezier(.32,.72,0,1)}
     .nav__link--cta:hover{background:#16A882;transform:translateY(-1px);color:var(--white)}
     .nav__link--cta:active{transform:translateY(0) scale(.98)}
@@ -152,6 +154,14 @@
 .back-top{position:fixed;bottom:2rem;right:2rem;z-index:300;width:44px;height:44px;border-radius:50%;background:var(--cannect);color:#fff;border:none;cursor:pointer;font-size:1.1rem;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(31,201,163,0.35);opacity:0;transform:translateY(12px) scale(0.85);transition:opacity 300ms,transform 300ms,background 150ms;pointer-events:none}
 .back-top--visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
 .back-top:hover{background:#16A882;transform:translateY(-2px) scale(1)}
+.nav__item{position:relative}
+.nav__item.open .nav__dropdown{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav__dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 24px rgba(12,11,29,0.08),0 2px 6px rgba(12,11,29,0.04);padding:var(--s2);min-width:200px;opacity:0;pointer-events:none;transition:opacity 160ms ease,transform 160ms ease}
+.nav__dropdown::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px}
+.nav__dropdown-item{display:block;padding:var(--s2) var(--s3);border-radius:8px;font-size:var(--t--1);font-weight:500;color:var(--stone);text-decoration:none;white-space:nowrap;transition:background 120ms ease,color 120ms ease}
+.nav__dropdown-item:hover{background:var(--periwinkle);color:var(--ink)}
+.nav__work-btn{background:none;border:none;cursor:pointer;padding:0}
+@media(max-width:640px){.nav__dropdown{position:static;opacity:1;pointer-events:auto;transform:none;box-shadow:none;border:none;border-radius:0;padding:var(--s2) 0 0 var(--s4);min-width:unset;display:flex;flex-direction:column}}
 </style>
 </head>
 <body>
@@ -167,7 +177,18 @@
         </svg>
       </button>
       <ul class="nav__links" id="navLinks" role="list">
-        <li><a href="index.html#work" class="nav__link">Work</a></li>
+        <li class="nav__item">
+          <button class="nav__link nav__work-btn" id="workBtn" aria-haspopup="true" aria-expanded="false" aria-controls="workDropdown">Work</button>
+          <div class="nav__dropdown" id="workDropdown" role="menu" aria-label="Projects">
+            <a href="cannect.html" class="nav__dropdown-item" role="menuitem">Cannect</a>
+            <a href="web-institucional.html" class="nav__dropdown-item" role="menuitem">IT Patagonia</a>
+            <a href="mi-estudio.html" class="nav__dropdown-item" role="menuitem">Mi Estudio</a>
+            <a href="alpha.html" class="nav__dropdown-item" role="menuitem">Alpha</a>
+            <a href="hauston.html" class="nav__dropdown-item" role="menuitem">Hauston</a>
+            <a href="marcelle.html" class="nav__dropdown-item" role="menuitem">Marcelle Kaswalder</a>
+            <a href="app-relajante.html" class="nav__dropdown-item" role="menuitem">App Relajante</a>
+          </div>
+        </li>
         <li><a href="index.html#about" class="nav__link">About</a></li>
         <li><a href="index.html#contact" class="nav__link nav__link--cta">Get in touch<span class="cta-arrow" aria-hidden="true">↗</span></a></li>
       </ul>
@@ -353,6 +374,13 @@
       toggle.setAttribute('aria-expanded', open);
     });
   
+  const workBtn = document.getElementById('workBtn');
+  const workDropdown = document.getElementById('workDropdown');
+  const workItem = workBtn.closest('.nav__item');
+  workBtn.addEventListener('click', (e) => { e.stopPropagation(); const open = workItem.classList.toggle('open'); workBtn.setAttribute('aria-expanded', open); });
+  document.addEventListener('click', () => { workItem.classList.remove('open'); workBtn.setAttribute('aria-expanded', 'false'); });
+  workDropdown.addEventListener('click', (e) => e.stopPropagation());
+
   const _backBtn=document.getElementById('back-top');
   if(_backBtn){const _chk=()=>{_backBtn.classList.toggle('back-top--visible',(window.scrollY||document.documentElement.scrollTop)>400)};window.addEventListener('scroll',_chk,{passive:true});_backBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}))}
 </script>
