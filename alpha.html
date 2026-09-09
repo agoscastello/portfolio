@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hauston Real Estate Web Experience. Case study by Agostina Castello, Product Designer.">
-  <title>Hauston — Agostina Castello</title>
+  <meta name="description" content="Errepar Tax &amp; Legal Platform Redesign. Case study by Agostina Castello, UX/UI Lead.">
+  <title>Alpha — Agostina Castello</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=optional" rel="stylesheet">
@@ -14,7 +14,7 @@
       --white:#FFFFFF;--ink:#0C0B1D;--stone:#4D4B63;
       --muted:#5C5978;--border:#CDD2F0;--purple:#5B2FE8;
       --purple-hover:#4520C4;--purple-light:#EDE8FD;
-      --hs:#C8A45A;--hs-dark:#A8843A;--hs-light:#F5EDD8;
+      --alpha:#2D6EFF;--alpha-dark:#1A50D8;--alpha-light:#EEF3FF;
       --ff-display:'Syne',system-ui,sans-serif;
       --ff-body:'Plus Jakarta Sans',system-ui,sans-serif;
       --t--1:.75rem;--t-0:1rem;--t-1:1.125rem;--t-2:1.375rem;
@@ -31,13 +31,14 @@
         --white:#0A0915;--ink:#EEECff;--stone:#9B99B8;
         --muted:#9896B0;--border:#2A2748;--purple:#8F6FFF;
         --purple-hover:#A882FF;--purple-light:#1E1850;
-        --hs:#D4B06A;--hs-dark:#B49050;--hs-light:#1A1408;
+        --alpha:#5B8FFF;--alpha-dark:#4070E8;--alpha-light:#0A1230;
       }
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:var(--ff-body);background:var(--white);color:var(--ink)}
     a{color:inherit;text-decoration:none}
     img{display:block;max-width:100%}
+
     .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background 200ms ease,box-shadow 200ms ease;height:60px}
     .nav.scrolled{background:var(--white);box-shadow:0 1px 0 rgba(12,11,29,0.06)}
     .nav__inner{max-width:var(--max);margin:0 auto;padding:0 var(--s6);height:100%;display:flex;align-items:center;justify-content:space-between}
@@ -56,52 +57,65 @@
     .nav__link--cta .cta-arrow{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;font-size:13px;transition:transform 350ms cubic-bezier(.32,.72,0,1)}
     .nav__link--cta:hover .cta-arrow{transform:translate(2px,-2px) scale(1.05)}
     .nav__toggle{display:none;background:none;border:none;cursor:pointer;color:var(--ink);padding:4px}
+
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s6)}
-    .case-hero{background:#0B0906;padding-top:calc(60px + var(--s16));padding-bottom:0;position:relative;overflow:hidden}
-    .case-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(200,164,90,.18) 0%,transparent 70%);pointer-events:none}
+
+    .case-hero{background:#030713;padding-top:calc(60px + var(--s16));padding-bottom:0;position:relative;overflow:hidden}
+    .case-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(45,110,255,.18) 0%,transparent 70%);pointer-events:none}
     .case-hero .wrap{display:flex;flex-direction:column;gap:var(--s6);position:relative;z-index:1}
     .case-hero__back{display:inline-flex;align-items:center;gap:6px;font-size:var(--t--1);font-weight:500;color:rgba(255,255,255,.7);transition:color var(--dur) var(--ease);align-self:flex-start;width:fit-content;letter-spacing:.01em}
     .case-hero__back:hover{color:rgba(255,255,255,.9)}
     .case-hero__tags{display:flex;flex-wrap:wrap;gap:var(--s2)}
     .tag{font-size:.75rem;font-weight:600;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:.25rem .75rem;border-radius:100px;letter-spacing:.03em;text-transform:uppercase}
     .case-hero__title{font-family:var(--ff-display);font-size:var(--t-5);font-weight:700;line-height:1.18;letter-spacing:-.015em;color:var(--white);text-wrap:balance}
-    .case-hero__title em{color:var(--hs);font-style:normal}
-    .case-hero__desc{font-size:var(--t-1);color:rgba(255,255,255,.75);line-height:1.75;max-width:560px}
+    .case-hero__title em{color:var(--alpha);font-style:normal}
+    .case-hero__desc{font-size:var(--t-1);color:rgba(255,255,255,.55);line-height:1.75;max-width:560px}
     .case-hero__meta{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);padding-top:var(--s8);padding-bottom:var(--s10);margin-top:var(--s4)}
     .meta-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:var(--s2)}
     .meta-value{font-size:var(--t-0);font-weight:500;color:var(--white);line-height:1.4}
+
     .case-cover{background:var(--white);display:flex;justify-content:center;padding:var(--s10) 0 0;position:relative}
     .case-cover img{max-width:860px;width:92%;height:auto;display:block;border-radius:12px 12px 0 0;position:relative;z-index:1}
+
     .case-metrics-wrap{background:var(--white);padding:var(--s10) 0 var(--s12)}
     .case-metrics{max-width:860px;margin:0 auto;padding:0 var(--s6);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
     .case-metric{background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:var(--s8);border-top:4px solid transparent;display:flex;flex-direction:column;gap:var(--s3)}
-    .case-metric:nth-child(1){border-top-color:var(--hs)}
-    .case-metric:nth-child(2){border-top-color:#9B8EC4}
-    .case-metric:nth-child(3){border-top-color:#6BAF92}
+    .case-metric:nth-child(1){border-top-color:var(--alpha)}
+    .case-metric:nth-child(2){border-top-color:#7B9FFF}
+    .case-metric:nth-child(3){border-top-color:#5B6EBF}
     .case-metric__num{font-family:var(--ff-display);font-size:var(--t-4);font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
-    .case-metric__num em{color:var(--hs);font-style:normal}
+    .case-metric__num em{color:var(--alpha);font-style:normal}
     .case-metric__label{font-size:var(--t--1);color:var(--stone);line-height:1.55}
     .case-metric__tag{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
     .case-sections{max-width:780px;margin:0 auto;padding:var(--s16) var(--s6)}
     .case-section{padding:var(--s12) 0}
-    .section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hs);margin-bottom:var(--s4)}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--alpha);margin-bottom:var(--s4)}
     .section-heading{font-family:var(--ff-display);font-size:var(--t-3);font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--ink);text-wrap:balance;margin-bottom:var(--s6)}
-    .section-heading em{color:var(--hs);font-style:normal}
+    .section-heading em{color:var(--alpha);font-style:normal}
     .section-body{color:var(--stone);font-size:var(--t-0);line-height:1.8}
     .section-body p+p{margin-top:var(--s4)}
+
+    .callout{border-left:3px solid var(--alpha);padding:var(--s4) var(--s8);margin-top:var(--s8)}
+    .callout__label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--alpha);margin-bottom:var(--s3)}
+    .callout__text{font-size:var(--t-1);color:var(--ink);line-height:1.7;font-style:italic}
+
     .decisions{margin-top:var(--s8);display:flex;flex-direction:column;gap:var(--s4)}
     .decision{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:var(--s6);transition:border-color var(--dur),box-shadow var(--dur)}
-    .decision:hover{border-color:var(--hs);box-shadow:0 4px 20px rgba(200,164,90,.12)}
+    .decision:hover{border-color:var(--alpha);box-shadow:0 4px 20px rgba(45,110,255,.10)}
     .decision__num{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--s3)}
     .decision__q{font-family:var(--ff-display);font-size:var(--t-1);font-weight:600;color:var(--ink);margin-bottom:var(--s3);letter-spacing:-.01em}
     .decision__a{font-size:var(--t--1);color:var(--stone);line-height:1.7}
+
     .bullets{margin-top:var(--s4);list-style:none;display:flex;flex-direction:column;gap:var(--s3)}
     .bullets li{font-size:var(--t-0);color:var(--stone);line-height:1.7;padding-left:var(--s6);position:relative}
-    .bullets li::before{content:"◆";position:absolute;left:0;color:var(--hs);font-size:8px;top:7px}
+    .bullets li::before{content:"◆";position:absolute;left:0;color:var(--alpha);font-size:8px;top:7px}
+
     .footer{border-top:1px solid var(--border);padding:var(--s8) var(--s6)}
     .footer__inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;font-size:.8rem;color:var(--muted)}
-    .footer__back{font-size:.875rem;font-weight:600;color:var(--hs);text-decoration:none;transition:color var(--dur)}
+    .footer__back{font-size:.875rem;font-weight:600;color:var(--alpha);text-decoration:none;transition:color var(--dur)}
     .footer__back:hover{color:var(--stone)}
+
     @media(max-width:768px){
       .case-hero__title{font-size:var(--t-4)}
       .case-hero__meta{grid-template-columns:repeat(2,1fr)}
@@ -112,9 +126,9 @@
       .nav__links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--periwinkle);border-bottom:1px solid var(--border);padding:var(--s6);gap:var(--s5)}
       .nav__toggle{display:block}
     }
-    .back-top{position:fixed;bottom:2rem;right:2rem;z-index:300;width:44px;height:44px;border-radius:50%;background:var(--hs);color:#fff;border:none;cursor:pointer;font-size:1.1rem;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,164,90,0.35);opacity:0;transform:translateY(12px) scale(0.85);transition:opacity 300ms,transform 300ms,background 150ms;pointer-events:none}
+    .back-top{position:fixed;bottom:2rem;right:2rem;z-index:300;width:44px;height:44px;border-radius:50%;background:var(--alpha);color:#fff;border:none;cursor:pointer;font-size:1.1rem;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(45,110,255,0.35);opacity:0;transform:translateY(12px) scale(0.85);transition:opacity 300ms,transform 300ms,background 150ms;pointer-events:none}
     .back-top--visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
-    .back-top:hover{background:var(--hs-dark);transform:translateY(-2px) scale(1)}
+    .back-top:hover{background:var(--alpha-dark);transform:translateY(-2px) scale(1)}
     .nav__item{position:relative}
     .nav__item.open .nav__dropdown{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
     .nav__dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 24px rgba(12,11,29,0.08),0 2px 6px rgba(12,11,29,0.04);padding:var(--s2);min-width:200px;opacity:0;pointer-events:none;transition:opacity 160ms ease,transform 160ms ease}
@@ -161,43 +175,40 @@
       <div class="wrap">
         <a href="index.html#work" class="case-hero__back">&#8592; All work</a>
         <div class="case-hero__tags">
-          <span class="tag">Premium Real Estate</span>
-          <span class="tag">WordPress</span>
+          <span class="tag">B2B Knowledge SaaS</span>
           <span class="tag">UX/UI Design</span>
-          <span class="tag">Web Development</span>
           <span class="tag">Information Architecture</span>
+          <span class="tag">Search UX</span>
+          <span class="tag">WCAG 2.2</span>
         </div>
-        <h1 class="case-hero__title">Hauston:<br><em>Real Estate Web Experience</em></h1>
-        <p class="case-hero__desc">Designing and building the digital presence for a premium real estate developer with high-end residential projects across Buenos Aires.</p>
+        <h1 class="case-hero__title">Errepar: Redesigning Tax &amp; Legal <em>Information Architecture</em></h1>
+        <p class="case-hero__desc">Transforming a complex, data-dense editorial platform and satellite microsites into an intuitive research tool for tax, accounting, and legal professionals.</p>
         <div class="case-hero__meta">
-          <div><p class="meta-label">Client</p><p class="meta-value">Hauston</p></div>
-          <div><p class="meta-label">Platform</p><p class="meta-value">WordPress · Elementor</p></div>
-          <div><p class="meta-label">Role</p><p class="meta-value">UX/UI Design · Web Development</p></div>
-          <div><p class="meta-label">Live site</p><p class="meta-value"><a href="https://hauston.com.ar" target="_blank" rel="noopener" style="color:var(--hs);text-decoration:underline;text-underline-offset:3px">hauston.com.ar &#8599;</a></p></div>
+          <div><p class="meta-label">Company</p><p class="meta-value">Errepar</p></div>
+          <div><p class="meta-label">Product</p><p class="meta-value">B2B Knowledge SaaS</p></div>
+          <div><p class="meta-label">Role</p><p class="meta-value">UX/UI Lead</p></div>
+          <div><p class="meta-label">Timeline</p><p class="meta-value">2021–2022</p></div>
+          <div><p class="meta-label">Live site</p><p class="meta-value"><a href="https://errepar.com" target="_blank" rel="noopener" style="color:#93BCFF;text-decoration:underline;text-underline-offset:3px">errepar.com &#8599;</a></p></div>
         </div>
       </div>
     </section>
 
-    <div class="case-cover">
-      <img src="hauston_cover.png" alt="Hauston premium real estate website, project pages and homepage" loading="lazy" decoding="async">
-    </div>
-
     <div class="case-metrics-wrap">
       <div class="case-metrics" role="list">
         <div class="case-metric" role="listitem">
-          <span class="case-metric__tag">Scale</span>
-          <p class="case-metric__num">7</p>
-          <p class="case-metric__label">Premium real estate developments featured on the platform</p>
+          <span class="case-metric__tag">Timeline</span>
+          <p class="case-metric__num">2y</p>
+          <p class="case-metric__label">End to end research, strategy, and interface redesign over two years</p>
         </div>
         <div class="case-metric" role="listitem">
-          <span class="case-metric__tag">Location</span>
-          <p class="case-metric__num" style="font-size:var(--t-3)">CABA</p>
-          <p class="case-metric__label">Buenos Aires City: Nuñez, Palermo, Recoleta, Belgrano</p>
+          <span class="case-metric__tag">Scope</span>
+          <p class="case-metric__num" style="font-size:var(--t-3)">5+</p>
+          <p class="case-metric__label">Satellite microsites unified under a shared design system</p>
         </div>
         <div class="case-metric" role="listitem">
-          <span class="case-metric__tag">Status</span>
-          <p class="case-metric__num" style="font-size:var(--t-3)">Live</p>
-          <p class="case-metric__label">Deployed and operational at hauston.com.ar</p>
+          <span class="case-metric__tag">Standard</span>
+          <p class="case-metric__num" style="font-size:var(--t-3)">WCAG</p>
+          <p class="case-metric__label">2.2 accessibility compliance across platform and microsites</p>
         </div>
       </div>
     </div>
@@ -205,61 +216,76 @@
     <div class="case-sections">
       <section class="case-section" aria-labelledby="s-context">
         <p class="section-label">Context</p>
-        <h2 class="section-heading" id="s-context">A premium real estate developer <em>needing a digital home</em></h2>
+        <h2 class="section-heading" id="s-context">A foundational resource for legal and tax <em>professionals</em></h2>
         <div class="section-body">
-          <p>Hauston is a Buenos Aires based real estate developer specializing in premium residential projects across sought-after neighborhoods like Nuñez, Palermo, Recoleta, and Belgrano. Operating alongside prestigious architecture studios, they deliver spaces defined by aesthetic quality, versatility, and modern design.</p>
-          <p>The objective was to construct a complete digital presence that communicates their portfolio, positions them as a top tier developer, and provides potential buyers and investors with a frictionless path to connect.</p>
+          <p>Errepar is one of the leading legal, tax, and accounting publishers in Latin America. Thousands of accountants, lawyers, and corporate advisors rely on its digital platform and specialized microsites daily to consult regulations, court rulings, and complex tax legislation where accuracy and speed are vital.</p>
+          <p>The legacy ecosystem had grown organically over decades, resulting in fragmented satellite microsites, inconsistent navigation patterns, and a search engine that failed to deliver relevant results efficiently.</p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="s-problem">
+        <p class="section-label">Problem</p>
+        <h2 class="section-heading" id="s-problem">When users blame themselves <em>for bad UX</em></h2>
+        <div class="section-body">
+          <p>During qualitative research sessions and user interviews, a striking pattern emerged: professionals were consistently taking the blame for platform failures. Users repeatedly expressed frustration with comments like "I must be searching wrong" or "I am not good at finding things here."</p>
+          <p>In reality, the system was failing them. The interface suffered from extreme visual noise, broken content hierarchy, and a search architecture that required exact keywords rather than supporting natural professional queries. In a professional B2B setting, bad UX creates anxiety, slows down billable work, and damages user confidence.</p>
+        </div>
+
+        <div class="callout">
+          <p class="callout__label">Core challenge</p>
+          <p class="callout__text">How do you modernize a massive, content-dense legal repository without breaking familiar workflows for long-time power users?</p>
         </div>
       </section>
 
       <section class="case-section" aria-labelledby="s-role">
         <p class="section-label">My role</p>
-        <h2 class="section-heading" id="s-role">End to end UX, visual design, <em>and development</em></h2>
-        <div class="section-body"><p>I owned the project from conceptualization through to live deployment, executing the full project lifecycle:</p></div>
+        <h2 class="section-heading" id="s-role">End to end research, strategy, <em>and interface redesign</em></h2>
+        <div class="section-body"><p>As UX/UI Lead, I directed the research and redesign strategy across the core platform and its specialized microsites:</p></div>
         <ul class="bullets">
-          <li>Defining the information architecture, sitemap, and navigation models</li>
-          <li>Establishing a high-end visual design system tailored to premium market expectations</li>
-          <li>Designing individual project pages for 7 developments featuring galleries, specs, and targeted call to actions</li>
-          <li>Building the WordPress platform using Elementor, ensuring the client maintains complete content autonomy</li>
-          <li>Integrating direct contact paths including WhatsApp conversion hooks to shorten the sales cycle</li>
+          <li>Conducting qualitative user interviews and usability testing sessions with accountants and legal experts</li>
+          <li>Uncovering core usability friction points, mental model mismatches, and search failures</li>
+          <li>Re-architecting the global taxonomy, navigation models, and microsite cross-linking strategy</li>
+          <li>Redesigning search experience with contextual filters, clear validation states, and scannable result cards</li>
+          <li>Establishing a clean, accessible UI hierarchy optimized for high data density and prolonged reading</li>
+          <li>Aligning design patterns across satellite microsites to build a unified brand ecosystem</li>
         </ul>
       </section>
 
       <section class="case-section" aria-labelledby="s-decisions">
         <p class="section-label">Key design decisions</p>
-        <h2 class="section-heading" id="s-decisions">Decisions tailored for <em>high-intent investors</em></h2>
+        <h2 class="section-heading" id="s-decisions">Decisions tailored for <em>high-intent researchers</em></h2>
         <div class="decisions">
           <div class="decision">
             <p class="decision__num">Decision 01</p>
-            <p class="decision__q">Immersive photography and high-impact visual hierarchy</p>
-            <p class="decision__a">Real estate buyers and investors look for trust signals before reading detailed specs. We prioritized full-bleed hero imagery and high-resolution visual storytelling on every project page, allowing the architectural quality to lead the experience before diving into technical details.</p>
+            <p class="decision__q">Reframing search from keyword matching to contextual discovery</p>
+            <p class="decision__a">Since the search engine was the primary entry point for research, we redesigned the search interaction model. We introduced contextual auto-suggestions, clear category filters, and structured result cards that highlighted relevant legal dates and status, allowing users to verify relevance instantly without opening each document.</p>
           </div>
           <div class="decision">
             <p class="decision__num">Decision 02</p>
-            <p class="decision__q">Direct two-click project navigation</p>
-            <p class="decision__a">To streamline navigation for returning investors and prospective buyers, we engineered a flat information architecture. The primary navigation includes a direct Proyectos dropdown menu, making all 7 developments accessible within two clicks from any page on the site.</p>
+            <p class="decision__q">Unifying satellite microsites under a shared design system</p>
+            <p class="decision__a">The ecosystem contained multiple independent microsites with divergent layouts. We created a modular component library that brought visual and navigational consistency to all satellite sites, reducing learning curves and allowing users to navigate seamlessly across different tax modules without losing orientation.</p>
           </div>
           <div class="decision">
             <p class="decision__num">Decision 03</p>
-            <p class="decision__q">Multi-channel conversion paths with instant messaging</p>
-            <p class="decision__a">We designed frictionless contact touchpoints tailored to local buyer behavior. This included floating WhatsApp integration, dedicated contact forms, and inline project inquiries, ensuring that user intent is never more than one tap away from the sales team.</p>
+            <p class="decision__q">Designing for extended reading and cognitive relief</p>
+            <p class="decision__a">Tax and legal consultation requires reading dense articles for hours. We redesigned the typography hierarchy, introduced high contrast reading modes conforming to WCAG 2.2 standards, and added collapsible content sidebars to help users navigate long legal texts effortlessly without losing their place in the document.</p>
           </div>
         </div>
       </section>
 
       <section class="case-section" aria-labelledby="s-solution">
         <p class="section-label">Final solution</p>
-        <h2 class="section-heading" id="s-solution">An elegant platform <em>built for client autonomy</em></h2>
+        <h2 class="section-heading" id="s-solution">Empowering professionals with <em>clarity and speed</em></h2>
         <div class="section-body">
-          <p>The platform deployed at hauston.com.ar presents the full portfolio of residential developments across prime Buenos Aires locations. The custom WordPress architecture empowers internal teams to manage content, upload new render galleries, and update project availability independently without ongoing developer dependencies.</p>
+          <p>The redesigned Errepar platform and microsite network transformed a chaotic digital archive into a modern research workstation. By fixing the underlying information architecture and search UX, we shifted the user experience from self-doubt and hesitation to speed, precision, and trust.</p>
         </div>
       </section>
 
       <section class="case-section" aria-labelledby="s-outcome">
         <p class="section-label">Outcome</p>
-        <h2 class="section-heading" id="s-outcome">A digital presence <em>matching physical architectural quality</em></h2>
+        <h2 class="section-heading" id="s-outcome">Restored confidence <em>and seamless navigation</em></h2>
         <div class="section-body">
-          <p>Hauston now operates a digital platform that mirrors the high quality of their physical real estate projects. The combination of clean sans-serif typography, dark visual themes, scannable specifications, and low-friction conversion paths delivers a sophisticated experience optimized for investor trust and lead generation.</p>
+          <p>The new architecture significantly improved task completion speed for complex legal queries. User feedback post-launch showed a complete turnaround in sentiment: professionals felt empowered, navigated between microsites without losing context, and trusted the search engine to deliver accurate results on the first attempt.</p>
         </div>
       </section>
 
@@ -267,7 +293,7 @@
         <p class="section-label">Reflection</p>
         <h2 class="section-heading" id="s-reflection">What this <em>reinforced</em></h2>
         <div class="section-body">
-          <p>Designing for premium B2C and real estate audiences requires balancing visual elegance with conversion efficiency. The success of this project relied on establishing trust through photography and clean typography while keeping contact paths short, actionable, and effortless for potential buyers.</p>
+          <p>This project highlighted a critical principle in B2B product design: when users blame themselves for interface struggles, it is a clear sign that the product's information architecture is broken. Redesigning Errepar was not about making a legal site look modern, but about respecting the user's expertise and building a tool that works as efficiently as they do.</p>
         </div>
       </section>
     </div>
