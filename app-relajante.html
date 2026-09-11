@@ -7,7 +7,7 @@
   <title>App Relajante — Agostina Castello</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
   <style>
     :root{
       --ink:#0E0E0E;--white:#FFFFFF;--bg:#F7F6F3;--periwinkle:#E8E6FF;
@@ -21,14 +21,14 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
-    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background var(--dur),box-shadow var(--dur)}
-    .nav.scrolled{background:rgba(247,246,243,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--border)}
-    .nav__inner{max-width:1120px;margin:0 auto;padding:var(--s4) var(--s6);display:flex;align-items:center;gap:var(--s4)}
-    .nav__logo{font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--white);text-decoration:none;margin-right:auto}
-    .nav.scrolled .nav__logo{color:var(--ink)}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background 200ms ease,box-shadow 200ms ease;height:60px}
+    .nav.scrolled{background:var(--white);box-shadow:0 1px 0 rgba(12,11,29,0.06)}
+    .nav__inner{max-width:1160px;margin:0 auto;padding:0 var(--s6);height:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav__logo{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--white);letter-spacing:-.01em;text-decoration:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .nav.scrolled .nav__logo{color:var(--purple);-webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto}
     .nav__links{list-style:none;display:flex;gap:var(--s6)}
-    .nav__link{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;transition:color var(--dur)}
-    .nav.scrolled .nav__link{color:var(--muted)}
+    .nav__link{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;transition:color var(--dur)}
+    .nav.scrolled .nav__link{color:var(--stone)}
     .nav__link--cta{background:var(--rx);color:var(--white)!important;padding:.375rem var(--s4);border-radius:100px;font-weight:600}:focus-visible{outline:3px solid #C3B4FF;outline-offset:3px;border-radius:4px}.hero :focus-visible{outline-color:#fff}
     .hero{background:#3D1FA8;padding:140px var(--s6) var(--s16);position:relative;overflow:hidden}
     .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 100%,rgba(95,47,232,.5) 0%,transparent 70%);pointer-events:none}
@@ -87,14 +87,37 @@
     .footer__inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
     .footer__copy{font-size:.8rem;color:var(--muted)}
     .footer__back{font-size:.875rem;font-weight:600;color:var(--rx);text-decoration:none}
-  </style>
+  
+.back-top{position:fixed;bottom:2rem;right:2rem;z-index:300;width:44px;height:44px;border-radius:50%;background:#5B2FE8;color:#fff;border:none;cursor:pointer;font-size:1.1rem;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(91,47,232,0.3);opacity:0;transform:translateY(12px) scale(0.85);transition:opacity 300ms,transform 300ms,background 150ms;pointer-events:none}
+.back-top--visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
+.back-top:hover{background:#4520C4;transform:translateY(-2px) scale(1)}
+.nav__item{position:relative}
+.nav__item.open .nav__dropdown{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav__dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 24px rgba(12,11,29,0.08),0 2px 6px rgba(12,11,29,0.04);padding:var(--s2);min-width:200px;opacity:0;pointer-events:none;transition:opacity 160ms ease,transform 160ms ease}
+.nav__dropdown::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px}
+.nav__dropdown-item{display:block;padding:.5rem .75rem;border-radius:8px;font-size:.75rem;font-weight:500;color:var(--stone);text-decoration:none;white-space:nowrap;transition:background 120ms ease,color 120ms ease}
+.nav__dropdown-item:hover{background:var(--periwinkle);color:var(--ink)}
+.nav__work-btn{background:none;border:none;cursor:pointer;padding:0}
+@media(max-width:640px){.nav__dropdown{position:static;opacity:1;pointer-events:auto;transform:none;box-shadow:none;border:none;border-radius:0;padding:var(--s2) 0 0 var(--s4);min-width:unset;display:flex;flex-direction:column}}
+</style>
 </head>
 <body>
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">AC</a>
       <ul class="nav__links">
-        <li><a href="index.html#work" class="nav__link">Work</a></li>
+        <li class="nav__item">
+          <button class="nav__link nav__work-btn" id="workBtn" aria-haspopup="true" aria-expanded="false" aria-controls="workDropdown">Work</button>
+          <div class="nav__dropdown" id="workDropdown" role="menu" aria-label="Projects">
+            <a href="cannect.html" class="nav__dropdown-item" role="menuitem">Cannect</a>
+            <a href="web-institucional.html" class="nav__dropdown-item" role="menuitem">IT Patagonia</a>
+            <a href="mi-estudio.html" class="nav__dropdown-item" role="menuitem">Mi Estudio</a>
+            <a href="alpha.html" class="nav__dropdown-item" role="menuitem">Alpha</a>
+            <a href="hauston.html" class="nav__dropdown-item" role="menuitem">Hauston</a>
+            <a href="marcelle.html" class="nav__dropdown-item" role="menuitem">Marcelle Kaswalder</a>
+            <a href="app-relajante.html" class="nav__dropdown-item" role="menuitem">App Relajante</a>
+          </div>
+        </li>
         <li><a href="index.html#about" class="nav__link">About</a></li>
         <li><a href="index.html#contact" class="nav__link nav__link--cta">Get in touch</a></li>
       </ul>
@@ -244,9 +267,21 @@
     </div>
   </footer>
 
-  <script>
+  
+<button id="back-top" aria-label="Scroll to top" class="back-top">↑</button>
+<script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
-  </script>
+  
+  const workBtn = document.getElementById('workBtn');
+  const workDropdown = document.getElementById('workDropdown');
+  const workItem = workBtn.closest('.nav__item');
+  workBtn.addEventListener('click', (e) => { e.stopPropagation(); const open = workItem.classList.toggle('open'); workBtn.setAttribute('aria-expanded', open); });
+  document.addEventListener('click', () => { workItem.classList.remove('open'); workBtn.setAttribute('aria-expanded', 'false'); });
+  workDropdown.addEventListener('click', (e) => e.stopPropagation());
+
+  const _backBtn=document.getElementById('back-top');
+  if(_backBtn){const _chk=()=>{_backBtn.classList.toggle('back-top--visible',(window.scrollY||document.documentElement.scrollTop)>400)};window.addEventListener('scroll',_chk,{passive:true});_backBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}))}
+</script>
 </body>
 </html>

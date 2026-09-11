@@ -224,7 +224,9 @@
     </div>
   </footer>
 
-  <script>
+  
+<button id="back-top" aria-label="Scroll to top" class="back-top">↑</button>
+<script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
@@ -235,6 +237,9 @@
       const open = links.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open);
     });
-  </script>
+  
+  const _backBtn=document.getElementById('back-top');
+  if(_backBtn){const _chk=()=>{_backBtn.classList.toggle('back-top--visible',(window.scrollY||document.documentElement.scrollTop)>400)};window.addEventListener('scroll',_chk,{passive:true});_backBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}))}
+</script>
 </body>
 </html>
